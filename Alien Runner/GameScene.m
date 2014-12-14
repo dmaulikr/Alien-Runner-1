@@ -50,8 +50,14 @@
 
 - (void)updateView
 {
+  // Calculate clamped x and y locations
+  CGFloat x = fmaxf(self.camera.position.x, self.size.width * 0.5);
+  CGFloat y = fmaxf(self.camera.position.y, self.size.height * 0.5);
+  x = fminf(x, (self.map.mapSize.width * self.map.tileSize.width) - self.size.width * 0.5);
+  y = fminf(y, (self.map.mapSize.height * self.map.tileSize.height) - self.size.height * 0.5);
+  
   // Center view on camera's position in the map
-  self.map.position = CGPointMake((self.size.width * 0.5) - self.camera.position.x, (self.size.height * 0.5) - self.camera.position.y);
+  self.map.position = CGPointMake((self.size.width * 0.5) - x, (self.size.height * 0.5) - y);
 }
 
 @end

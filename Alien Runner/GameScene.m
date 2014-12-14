@@ -42,7 +42,16 @@
     CGPoint previousTouchLocation = [touch previousLocationInNode:self];
     CGPoint movement = CGPointMake(touchLocation.x - previousTouchLocation.x,
                                    touchLocation.y - previousTouchLocation.y);
+    
     self.camera.position = CGPointMake(self.camera.position.x + movement.x, self.camera.position.y + movement.y);
+    [self updateView];
   }
 }
+
+- (void)updateView
+{
+  // Center view on camera's position in the map
+  self.map.position = CGPointMake((self.size.width * 0.5) - self.camera.position.x, (self.size.height * 0.5) - self.camera.position.y);
+}
+
 @end

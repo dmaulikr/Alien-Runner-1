@@ -14,7 +14,6 @@
 		BEAC413F1A3D5D55003E8E8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC413E1A3D5D55003E8E8C /* main.m */; };
 		BEAC41421A3D5D55003E8E8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41411A3D5D55003E8E8C /* AppDelegate.m */; };
 		BEAC41451A3D5D55003E8E8C /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41441A3D5D55003E8E8C /* GameScene.m */; };
-		BEAC41471A3D5D55003E8E8C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BEAC41461A3D5D55003E8E8C /* GameScene.sks */; };
 		BEAC414A1A3D5D55003E8E8C /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41491A3D5D55003E8E8C /* GameViewController.m */; };
 		BEAC414D1A3D5D55003E8E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEAC414B1A3D5D55003E8E8C /* Main.storyboard */; };
 		BEAC414F1A3D5D55003E8E8C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEAC414E1A3D5D55003E8E8C /* Images.xcassets */; };
@@ -47,7 +46,6 @@
 		BEAC41411A3D5D55003E8E8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BEAC41431A3D5D55003E8E8C /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		BEAC41441A3D5D55003E8E8C /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		BEAC41461A3D5D55003E8E8C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		BEAC41481A3D5D55003E8E8C /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		BEAC41491A3D5D55003E8E8C /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		BEAC414C1A3D5D55003E8E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +75,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */,
+				BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */,
+				BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */,
+				BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */,
+			);
+			name = JSTileMap;
+			sourceTree = "<group>";
+		};
 		BEAC41301A3D5D55003E8E8C = {
 			isa = PBXGroup;
 			children = (
@@ -100,15 +109,11 @@
 		BEAC413B1A3D5D55003E8E8C /* Alien Runner */ = {
 			isa = PBXGroup;
 			children = (
-				BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */,
-				BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */,
-				BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */,
-				BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */,
+				BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */,
 				BEAC41401A3D5D55003E8E8C /* AppDelegate.h */,
 				BEAC41411A3D5D55003E8E8C /* AppDelegate.m */,
 				BEAC41431A3D5D55003E8E8C /* GameScene.h */,
 				BEAC41441A3D5D55003E8E8C /* GameScene.m */,
-				BEAC41461A3D5D55003E8E8C /* GameScene.sks */,
 				BEAC41481A3D5D55003E8E8C /* GameViewController.h */,
 				BEAC41491A3D5D55003E8E8C /* GameViewController.m */,
 				BEAC414B1A3D5D55003E8E8C /* Main.storyboard */,
@@ -228,7 +233,6 @@
 			files = (
 				BEAC41521A3D5D55003E8E8C /* LaunchScreen.xib in Resources */,
 				BEAC414F1A3D5D55003E8E8C /* Images.xcassets in Resources */,
-				BEAC41471A3D5D55003E8E8C /* GameScene.sks in Resources */,
 				BEAC414D1A3D5D55003E8E8C /* Main.storyboard in Resources */,
 				BE8CDEDC1A3D5EE3004BD7FB /* LICENSE in Resources */,
 			);

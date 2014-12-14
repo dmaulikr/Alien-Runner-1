@@ -36,10 +36,24 @@
     
     // Setup Player
     self.player = [[Player alloc] init];
-    self.player.position = CGPointMake(size.width * 0.5, size.height * 0.5);
+    self.player.position = [self getMarkerPosition:@"Player"];
     [self.map addChild:self.player];
   }
   return self;
+}
+
+- (CGPoint)getMarkerPosition:(NSString*)markerName
+{
+  CGPoint position = CGPointMake(0, 0); // default to something
+  TMXObjectGroup *markerLayer = [self.map groupNamed:@"Markers"];
+  if (markerLayer) {
+    NSDictionary *marker = [markerLayer objectNamed:markerName];
+    if (marker) {
+      position = CGPointMake([[marker valueForKey:@"x"] floatValue],
+                             [[marker valueForKey:@"y"] floatValue]);
+    }
+  }
+  return position;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event

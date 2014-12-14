@@ -56,6 +56,14 @@
   return position;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  for (UITouch *touch in touches) {
+    self.player.position = [touch locationInNode:self.map];
+    self.player.velocity = CGVectorMake(0, 0);
+  }
+}
+
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
   for (UITouch *touch in touches) {
@@ -71,6 +79,9 @@
 
 - (void)update:(NSTimeInterval)currentTime
 {
+  // Update player
+  [self.player update];
+  
   // Update position of camera
   self.camera.position = CGPointMake(self.player.position.x + (self.size.width * 0.25), self.player.position.y);
   [self updateView];

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE8CDED61A3D5E58004BD7FB /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */; };
+		BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */; };
+		BE8CDED91A3D5E6D004BD7FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8CDED81A3D5E6D004BD7FB /* libz.dylib */; };
+		BE8CDEDC1A3D5EE3004BD7FB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEDA1A3D5EE3004BD7FB /* LICENSE */; };
 		BEAC413F1A3D5D55003E8E8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC413E1A3D5D55003E8E8C /* main.m */; };
 		BEAC41421A3D5D55003E8E8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41411A3D5D55003E8E8C /* AppDelegate.m */; };
 		BEAC41451A3D5D55003E8E8C /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41441A3D5D55003E8E8C /* GameScene.m */; };
@@ -29,6 +33,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
+		BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
+		BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
+		BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFCGzipUtility.m; sourceTree = "<group>"; };
+		BE8CDED81A3D5E6D004BD7FB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BE8CDEDA1A3D5EE3004BD7FB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BE8CDEDB1A3D5EE3004BD7FB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BEAC41391A3D5D55003E8E8C /* Alien Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alien Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAC413D1A3D5D55003E8E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEAC413E1A3D5D55003E8E8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE8CDED91A3D5E6D004BD7FB /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +80,8 @@
 		BEAC41301A3D5D55003E8E8C = {
 			isa = PBXGroup;
 			children = (
+				BE8CDEDA1A3D5EE3004BD7FB /* LICENSE */,
+				BE8CDEDB1A3D5EE3004BD7FB /* README.md */,
 				BEAC413B1A3D5D55003E8E8C /* Alien Runner */,
 				BEAC415A1A3D5D55003E8E8C /* Alien RunnerTests */,
 				BEAC413A1A3D5D55003E8E8C /* Products */,
@@ -86,6 +100,10 @@
 		BEAC413B1A3D5D55003E8E8C /* Alien Runner */ = {
 			isa = PBXGroup;
 			children = (
+				BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */,
+				BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */,
+				BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */,
+				BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */,
 				BEAC41401A3D5D55003E8E8C /* AppDelegate.h */,
 				BEAC41411A3D5D55003E8E8C /* AppDelegate.m */,
 				BEAC41431A3D5D55003E8E8C /* GameScene.h */,
@@ -104,6 +122,7 @@
 		BEAC413C1A3D5D55003E8E8C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE8CDED81A3D5E6D004BD7FB /* libz.dylib */,
 				BEAC413D1A3D5D55003E8E8C /* Info.plist */,
 				BEAC413E1A3D5D55003E8E8C /* main.m */,
 			);
@@ -211,6 +230,7 @@
 				BEAC414F1A3D5D55003E8E8C /* Images.xcassets in Resources */,
 				BEAC41471A3D5D55003E8E8C /* GameScene.sks in Resources */,
 				BEAC414D1A3D5D55003E8E8C /* Main.storyboard in Resources */,
+				BE8CDEDC1A3D5EE3004BD7FB /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,8 +249,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEAC414A1A3D5D55003E8E8C /* GameViewController.m in Sources */,
+				BE8CDED61A3D5E58004BD7FB /* JSTileMap.m in Sources */,
 				BEAC41421A3D5D55003E8E8C /* AppDelegate.m in Sources */,
 				BEAC41451A3D5D55003E8E8C /* GameScene.m in Sources */,
+				BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */,
 				BEAC413F1A3D5D55003E8E8C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +444,7 @@
 				BEAC41631A3D5D55003E8E8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEAC41641A3D5D55003E8E8C /* Build configuration list for PBXNativeTarget "Alien RunnerTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +453,7 @@
 				BEAC41661A3D5D55003E8E8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -30,4 +30,17 @@ static const CGFloat kGravity = -0.2;
 
 }
 
+- (CGRect)collisionRectAtTarget
+{
+  // Calculate smaller rectanlge based on frame
+  CGRect collisionRect = CGRectInset(self.frame, 4, 2);
+  
+  // Move rectangle to target position
+  CGPoint movement = CGPointMake(self.targetPosition.x - self.position.x, self.targetPosition.y - self.position.y);
+  
+  // having an inset of 2 on the y and -2 offset gives 4 pixel pading on top and 0 on bottom
+  collisionRect = CGRectOffset(collisionRect, movement.x, movement.y - 2);
+  return collisionRect;
+}
+
 @end

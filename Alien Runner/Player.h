@@ -14,5 +14,6 @@
 @property (nonatomic) CGPoint targetPosition;
 
 - (void)update;
+- (CGRect)collisionRectAtTarget;
 
 @end

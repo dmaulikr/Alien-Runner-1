@@ -30,7 +30,7 @@
     [self addChild:self.map];
     
     // Setup camera
-    self.camera = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(5, 5)];
+    self.camera = [SKNode node];
     self.camera.position = CGPointMake(size.width * 0.5, size.height * 0.5);
     [self.map addChild:self.camera];
     
@@ -64,9 +64,16 @@
     CGPoint movement = CGPointMake(touchLocation.x - previousTouchLocation.x,
                                    touchLocation.y - previousTouchLocation.y);
     
-    self.camera.position = CGPointMake(self.camera.position.x + movement.x, self.camera.position.y + movement.y);
-    [self updateView];
+    self.player.position = CGPointMake(self.player.position.x + movement.x, self.player.position.y + movement.y);
+//    [self updateView];
   }
+}
+
+- (void)update:(NSTimeInterval)currentTime
+{
+  // Update position of camera
+  self.camera.position = CGPointMake(self.player.position.x + (self.size.width * 0.25), self.player.position.y);
+  [self updateView];
 }
 
 - (void)updateView

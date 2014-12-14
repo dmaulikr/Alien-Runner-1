@@ -7,12 +7,26 @@
 //
 
 #import "GameScene.h"
+#import "JSTileMap.h"
+
+@interface GameScene()
+
+@property (nonatomic) JSTileMap *map;
+
+@end
 
 @implementation GameScene
 
 - (id)initWithSize:(CGSize)size {
+  
   if (self = [super initWithSize:size]) {
-    self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+    // Sky blue background
+    self.backgroundColor = [SKColor colorWithRed:0.81 green:0.91 blue:0.96 alpha:1.0];
+    
+    // Load level
+    self.map = [JSTileMap mapNamed:@"Level1.tmx"];
+    [self addChild:self.map];
+    
   }
   return self;
 }

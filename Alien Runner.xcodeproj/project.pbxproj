@@ -11,6 +11,9 @@
 		BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */; };
 		BE8CDED91A3D5E6D004BD7FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8CDED81A3D5E6D004BD7FB /* libz.dylib */; };
 		BE8CDEDC1A3D5EE3004BD7FB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEDA1A3D5EE3004BD7FB /* LICENSE */; };
+		BE8CDEE51A3D6153004BD7FB /* Level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEE01A3D6153004BD7FB /* Level1.tmx */; };
+		BE8CDEE81A3D6153004BD7FB /* Tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEE31A3D6153004BD7FB /* Tileset.png */; };
+		BE8CDEE91A3D6153004BD7FB /* Tileset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEE41A3D6153004BD7FB /* Tileset@2x.png */; };
 		BEAC413F1A3D5D55003E8E8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC413E1A3D5D55003E8E8C /* main.m */; };
 		BEAC41421A3D5D55003E8E8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41411A3D5D55003E8E8C /* AppDelegate.m */; };
 		BEAC41451A3D5D55003E8E8C /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41441A3D5D55003E8E8C /* GameScene.m */; };
@@ -39,6 +42,9 @@
 		BE8CDED81A3D5E6D004BD7FB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BE8CDEDA1A3D5EE3004BD7FB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BE8CDEDB1A3D5EE3004BD7FB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BE8CDEE01A3D6153004BD7FB /* Level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level1.tmx; sourceTree = "<group>"; };
+		BE8CDEE31A3D6153004BD7FB /* Tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset.png; sourceTree = "<group>"; };
+		BE8CDEE41A3D6153004BD7FB /* Tileset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tileset@2x.png"; sourceTree = "<group>"; };
 		BEAC41391A3D5D55003E8E8C /* Alien Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alien Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAC413D1A3D5D55003E8E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEAC413E1A3D5D55003E8E8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +92,16 @@
 			name = JSTileMap;
 			sourceTree = "<group>";
 		};
+		BE8CDEDF1A3D6153004BD7FB /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CDEE01A3D6153004BD7FB /* Level1.tmx */,
+				BE8CDEE31A3D6153004BD7FB /* Tileset.png */,
+				BE8CDEE41A3D6153004BD7FB /* Tileset@2x.png */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		BEAC41301A3D5D55003E8E8C = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +125,7 @@
 		BEAC413B1A3D5D55003E8E8C /* Alien Runner */ = {
 			isa = PBXGroup;
 			children = (
+				BE8CDEDF1A3D6153004BD7FB /* Maps */,
 				BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */,
 				BEAC41401A3D5D55003E8E8C /* AppDelegate.h */,
 				BEAC41411A3D5D55003E8E8C /* AppDelegate.m */,
@@ -231,10 +248,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE8CDEE81A3D6153004BD7FB /* Tileset.png in Resources */,
 				BEAC41521A3D5D55003E8E8C /* LaunchScreen.xib in Resources */,
 				BEAC414F1A3D5D55003E8E8C /* Images.xcassets in Resources */,
 				BEAC414D1A3D5D55003E8E8C /* Main.storyboard in Resources */,
 				BE8CDEDC1A3D5EE3004BD7FB /* LICENSE in Resources */,
+				BE8CDEE91A3D6153004BD7FB /* Tileset@2x.png in Resources */,
+				BE8CDEE51A3D6153004BD7FB /* Level1.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

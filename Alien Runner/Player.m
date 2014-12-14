@@ -26,7 +26,7 @@ static const CGFloat kGravity = -0.2;
   self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + kGravity);
   
   // Move player
-  self.position = CGPointMake(self.position.x + self.velocity.dx, self.position.y + self.velocity.dy);
+  self.targetPosition = CGPointMake(self.position.x + self.velocity.dx, self.position.y + self.velocity.dy);
 
 }
 

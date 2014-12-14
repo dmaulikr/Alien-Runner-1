@@ -11,6 +11,7 @@
 @interface Player : SKSpriteNode
 
 @property (nonatomic) CGVector velocity;
+@property (nonatomic) CGPoint targetPosition;
 
 - (void)update;
 

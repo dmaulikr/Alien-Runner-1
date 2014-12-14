@@ -11,6 +11,7 @@
 @implementation Player
 
 static const CGFloat kGravity = -0.2;
+static const BOOL kShowCollisionRect = YES;
 
 - (instancetype)init
 {
@@ -22,6 +23,18 @@ static const CGFloat kGravity = -0.2;
 
 - (void)update
 {
+  if (kShowCollisionRect) {
+    [self removeAllChildren];
+    
+    SKShapeNode *box = [SKShapeNode node];
+    box.path = CGPathCreateWithRect([self collisionRectAtTarget], nil);
+    box.strokeColor = [SKColor redColor];
+    box.lineWidth = 0.1;
+    box.position = CGPointMake(-self.targetPosition.x, -self.targetPosition.y);
+    
+    [self addChild:box];
+  }
+  
   // Apply gravity
   self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + kGravity);
   

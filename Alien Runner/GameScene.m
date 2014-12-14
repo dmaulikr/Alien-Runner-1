@@ -83,7 +83,7 @@
   [self.player update];
   
   // Move player
-  self.player.position = self.player.targetPosition;
+//  self.player.position = self.player.targetPosition;
   
   // Update position of camera
   self.camera.position = CGPointMake(self.player.position.x + (self.size.width * 0.25), self.player.position.y);

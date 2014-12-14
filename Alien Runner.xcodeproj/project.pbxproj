@@ -14,6 +14,8 @@
 		BE8CDEE51A3D6153004BD7FB /* Level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEE01A3D6153004BD7FB /* Level1.tmx */; };
 		BE8CDEE81A3D6153004BD7FB /* Tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEE31A3D6153004BD7FB /* Tileset.png */; };
 		BE8CDEE91A3D6153004BD7FB /* Tileset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEE41A3D6153004BD7FB /* Tileset@2x.png */; };
+		BE8CDEEB1A3D632C004BD7FB /* Graphics.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BE8CDEEA1A3D632C004BD7FB /* Graphics.atlas */; };
+		BE8CDEEE1A3D6389004BD7FB /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDEED1A3D6389004BD7FB /* Player.m */; };
 		BEAC413F1A3D5D55003E8E8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC413E1A3D5D55003E8E8C /* main.m */; };
 		BEAC41421A3D5D55003E8E8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41411A3D5D55003E8E8C /* AppDelegate.m */; };
 		BEAC41451A3D5D55003E8E8C /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC41441A3D5D55003E8E8C /* GameScene.m */; };
@@ -45,6 +47,9 @@
 		BE8CDEE01A3D6153004BD7FB /* Level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level1.tmx; sourceTree = "<group>"; };
 		BE8CDEE31A3D6153004BD7FB /* Tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset.png; sourceTree = "<group>"; };
 		BE8CDEE41A3D6153004BD7FB /* Tileset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tileset@2x.png"; sourceTree = "<group>"; };
+		BE8CDEEA1A3D632C004BD7FB /* Graphics.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Graphics.atlas; sourceTree = "<group>"; };
+		BE8CDEEC1A3D6389004BD7FB /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		BE8CDEED1A3D6389004BD7FB /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		BEAC41391A3D5D55003E8E8C /* Alien Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alien Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAC413D1A3D5D55003E8E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEAC413E1A3D5D55003E8E8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,6 +130,7 @@
 		BEAC413B1A3D5D55003E8E8C /* Alien Runner */ = {
 			isa = PBXGroup;
 			children = (
+				BE8CDEEA1A3D632C004BD7FB /* Graphics.atlas */,
 				BE8CDEDF1A3D6153004BD7FB /* Maps */,
 				BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */,
 				BEAC41401A3D5D55003E8E8C /* AppDelegate.h */,
@@ -133,6 +139,8 @@
 				BEAC41441A3D5D55003E8E8C /* GameScene.m */,
 				BEAC41481A3D5D55003E8E8C /* GameViewController.h */,
 				BEAC41491A3D5D55003E8E8C /* GameViewController.m */,
+				BE8CDEEC1A3D6389004BD7FB /* Player.h */,
+				BE8CDEED1A3D6389004BD7FB /* Player.m */,
 				BEAC414B1A3D5D55003E8E8C /* Main.storyboard */,
 				BEAC414E1A3D5D55003E8E8C /* Images.xcassets */,
 				BEAC41501A3D5D55003E8E8C /* LaunchScreen.xib */,
@@ -250,6 +258,7 @@
 			files = (
 				BE8CDEE81A3D6153004BD7FB /* Tileset.png in Resources */,
 				BEAC41521A3D5D55003E8E8C /* LaunchScreen.xib in Resources */,
+				BE8CDEEB1A3D632C004BD7FB /* Graphics.atlas in Resources */,
 				BEAC414F1A3D5D55003E8E8C /* Images.xcassets in Resources */,
 				BEAC414D1A3D5D55003E8E8C /* Main.storyboard in Resources */,
 				BE8CDEDC1A3D5EE3004BD7FB /* LICENSE in Resources */,
@@ -277,6 +286,7 @@
 				BEAC41421A3D5D55003E8E8C /* AppDelegate.m in Sources */,
 				BEAC41451A3D5D55003E8E8C /* GameScene.m in Sources */,
 				BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */,
+				BE8CDEEE1A3D6389004BD7FB /* Player.m in Sources */,
 				BEAC413F1A3D5D55003E8E8C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

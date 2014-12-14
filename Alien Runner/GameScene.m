@@ -8,11 +8,13 @@
 
 #import "GameScene.h"
 #import "JSTileMap.h"
+#import "Player.h"
 
 @interface GameScene()
 
 @property (nonatomic) JSTileMap *map;
 @property (nonatomic) SKNode *camera;
+@property (nonatomic) Player *player;
 @end
 
 @implementation GameScene
@@ -31,6 +33,11 @@
     self.camera = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(5, 5)];
     self.camera.position = CGPointMake(size.width * 0.5, size.height * 0.5);
     [self.map addChild:self.camera];
+    
+    // Setup Player
+    self.player = [[Player alloc] init];
+    self.player.position = CGPointMake(size.width * 0.5, size.height * 0.5);
+    [self.map addChild:self.player];
   }
   return self;
 }

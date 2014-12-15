@@ -77,6 +77,16 @@
   }
 }
 
+- (void)collide:(Player *)player withLayer:(TMXLayer *)layer
+{
+  // Create coordinate offsets for tiles to check
+  CGPoint coordOffsets[8] = {CGPointMake(0, 1), CGPointMake(0, -1), CGPointMake(1, 0), CGPointMake(-1, 0), CGPointMake(1, -1), CGPointMake(-1, -1), CGPointMake(1, 1), CGPointMake(-1, 1)};
+  
+  // Get tile grid coord for player's position
+  CGPoint playerCoord = [layer coordForPoint:player.targetPosition];
+  
+}
+
 - (void)update:(NSTimeInterval)currentTime
 {
   // Update player

@@ -13,6 +13,7 @@
 @interface GameScene()
 
 @property (nonatomic) JSTileMap *map;
+@property (nonatomic) TMXLayer *mainLayer;
 @property (nonatomic) SKNode *camera;
 @property (nonatomic) Player *player;
 @end
@@ -27,6 +28,7 @@
     
     // Load level
     self.map = [JSTileMap mapNamed:@"Level1.tmx"];
+    self.mainLayer = [self.map layerNamed:@"Main"];
     [self addChild:self.map];
     
     // Setup camera
@@ -140,8 +142,11 @@
   // Update player
   [self.player update];
   
+  // Collide player with world
+  [self collide:self.player withLayer:self.mainLayer];
+  
   // Move player
-//  self.player.position = self.player.targetPosition;
+  self.player.position = self.player.targetPosition;
   
   // Update position of camera
   self.camera.position = CGPointMake(self.player.position.x + (self.size.width * 0.25), self.player.position.y);

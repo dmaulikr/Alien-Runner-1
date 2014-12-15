@@ -77,6 +77,19 @@
   }
 }
 
+- (BOOL)validTileCoord:(CGPoint)tileCoord
+{
+  return tileCoord.x >= 0 && tileCoord.y >= 0 && tileCoord.x < self.map.mapSize.width && tileCoord.y < self.map.mapSize.height;
+}
+
+- (CGRect)rectForTileCoord:(CGPoint)tileCoord
+{
+  CGFloat x = tileCoord.x * self.map.tileSize.width;
+  CGFloat mapHeight = self.map.mapSize.height * self.map.tileSize.height;
+  CGFloat y = mapHeight - ((tileCoord.y + 1) * self.map.tileSize.height);
+  return CGRectMake(x, y, self.map.tileSize.width, self.map.tileSize.height);
+}
+
 - (void)collide:(Player *)player withLayer:(TMXLayer *)layer
 {
   // Create coordinate offsets for tiles to check
@@ -85,6 +98,22 @@
   // Get tile grid coord for player's position
   CGPoint playerCoord = [layer coordForPoint:player.targetPosition];
   
+  for (int i = 0; i < 8; i++) {
+    CGRect playerRect = [player collisionRectAtTarget];
+    
+    CGPoint offset = coordOffsets[i];
+    CGPoint tileCoord = CGPointMake(playerCoord.x + offset.x, playerCoord.y + offset.y);
+    
+    // Get gid for tile at coordinate
+    int gid = 0;
+    if ([self validTileCoord:tileCoord]) {
+      gid = [layer.layerInfo tileGidAtCoord:tileCoord];
+    }
+    
+    if (gid != 0) {
+      CGRect intersection = CGRectIntersection(playerRect, [self rectForTileCoord:tileCoord]);
+    }
+  }
 }
 
 - (void)update:(NSTimeInterval)currentTime

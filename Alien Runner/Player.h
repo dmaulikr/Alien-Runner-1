@@ -12,6 +12,8 @@
 
 @property (nonatomic) CGVector velocity;
 @property (nonatomic) CGPoint targetPosition;
+@property (nonatomic) BOOL didJump;
+@property (nonatomic) BOOL onGround;
 
 - (void)update;
 - (CGRect)collisionRectAtTarget;

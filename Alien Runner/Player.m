@@ -8,11 +8,19 @@
 
 #import "Player.h"
 
+@interface Player()
+
+@property (nonatomic) BOOL didJumpPrevious;
+
+@end
+
 @implementation Player
 
 static const CGFloat kGravity = -0.2;
 static const CGFloat kAcceleration = 0.15;
 static const CGFloat kMaxSpeed = 5;
+static const CGFloat kJumpSpeed = 5.5;
+static const CGFloat kJumpCutOffSpeed = 2.5;
 static const BOOL kShowCollisionRect = YES;
 
 - (instancetype)init
@@ -43,8 +51,24 @@ static const BOOL kShowCollisionRect = YES;
   // Apply acceleration
   self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
   
+  if (self.didJump && !self.didJumpPrevious) {
+    // Starting a jump
+    if (self.onGround) {
+      // perform jump
+      self.velocity = CGVectorMake(self.velocity.dx, kJumpSpeed);
+    }
+  } else if (!self.didJump) {
+    // Cancel jump
+    if (self.velocity.dy > kJumpCutOffSpeed) {
+      self.velocity = CGVectorMake(self.velocity.dx, kJumpCutOffSpeed);
+    }
+  }
+  
   // Move player
   self.targetPosition = CGPointMake(self.position.x + self.velocity.dx, self.position.y + self.velocity.dy);
+  
+  // Track previous jump state
+  self.didJumpPrevious = self.didJump;
 
 }
 

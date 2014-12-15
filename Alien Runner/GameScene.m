@@ -60,30 +60,22 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  for (UITouch *touch in touches) {
-    CGPoint touchLocation = [touch locationInNode:self];
-    if (touchLocation.x < 50) {
-      self.player.velocity = CGVectorMake(-5, self.player.velocity.dy);
-    } else if (touchLocation.x > self.size.width - 50) {
-      self.player.velocity = CGVectorMake(5, self.player.velocity.dy);
-    } else {
-      self.player.position = [touch locationInNode:self.map];
-      self.player.velocity = CGVectorMake(0, 0);
-    }
-  }
+  self.player.didJump = YES;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  for (UITouch *touch in touches) {
-    CGPoint touchLocation = [touch locationInNode:self];
-    CGPoint previousTouchLocation = [touch previousLocationInNode:self];
-    CGPoint movement = CGPointMake(touchLocation.x - previousTouchLocation.x,
-                                   touchLocation.y - previousTouchLocation.y);
-    
-    self.player.position = CGPointMake(self.player.position.x + movement.x, self.player.position.y + movement.y);
-//    [self updateView];
-  }
+  
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  self.player.didJump = NO;
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  self.player.didJump = NO;
 }
 
 - (BOOL)validTileCoord:(CGPoint)tileCoord
@@ -106,6 +98,9 @@
   
   // Get tile grid coord for player's position
   CGPoint playerCoord = [layer coordForPoint:player.targetPosition];
+  
+  // Assume we're not on the ground
+  self.player.onGround = NO;
   
   for (int i = 0; i < 8; i++) {
     CGRect playerRect = [player collisionRectAtTarget];
@@ -133,6 +128,11 @@
         if (resolveVertically) {
           positionAdjustment.y = intersection.size.height * offset.y;
           player.velocity = CGVectorMake(player.velocity.dx, 0);
+          
+          if (offset.y == 1) {
+            // player is touching the ground
+            player.onGround = YES;
+          }
         } else {
           positionAdjustment.x = intersection.size.width * -offset.x;
           player.velocity = CGVectorMake(0, player.velocity.dy);

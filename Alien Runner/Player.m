@@ -49,7 +49,7 @@ static const BOOL kShowCollisionRect = YES;
   self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + kGravity);
   
   // Apply acceleration
-  self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
+  //self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
   
   if (self.didJump && !self.didJumpPrevious) {
     // Starting a jump

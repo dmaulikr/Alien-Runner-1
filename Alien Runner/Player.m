@@ -11,6 +11,8 @@
 @implementation Player
 
 static const CGFloat kGravity = -0.2;
+static const CGFloat kAcceleration = 0.15;
+static const CGFloat kMaxSpeed = 5;
 static const BOOL kShowCollisionRect = YES;
 
 - (instancetype)init
@@ -37,6 +39,9 @@ static const BOOL kShowCollisionRect = YES;
   
   // Apply gravity
   self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + kGravity);
+  
+  // Apply acceleration
+  self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
   
   // Move player
   self.targetPosition = CGPointMake(self.position.x + self.velocity.dx, self.position.y + self.velocity.dy);

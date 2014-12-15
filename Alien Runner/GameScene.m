@@ -61,8 +61,15 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
   for (UITouch *touch in touches) {
-    self.player.position = [touch locationInNode:self.map];
-    self.player.velocity = CGVectorMake(0, 0);
+    CGPoint touchLocation = [touch locationInNode:self];
+    if (touchLocation.x < 50) {
+      self.player.velocity = CGVectorMake(-5, self.player.velocity.dy);
+    } else if (touchLocation.x > self.size.width - 50) {
+      self.player.velocity = CGVectorMake(5, self.player.velocity.dy);
+    } else {
+      self.player.position = [touch locationInNode:self.map];
+      self.player.velocity = CGVectorMake(0, 0);
+    }
   }
 }
 

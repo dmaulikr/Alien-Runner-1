@@ -116,6 +116,20 @@
       if (!CGRectIsNull(intersection)) {
         // Do we move the player horizontally or vertically?
         BOOL resolveVertically = offset.x == 0 || (offset.y != 0 && intersection.size.height < intersection.size.width);
+        
+        CGPoint positionAdjustment = CGPointZero;
+        
+        // Calculate the distance we need to move the player
+        // Reset the player velocity
+        if (resolveVertically) {
+          positionAdjustment.y = intersection.size.height * offset.y;
+          player.velocity = CGVectorMake(player.velocity.dx, 0);
+        } else {
+          positionAdjustment.x = intersection.size.width * -offset.x;
+          player.velocity = CGVectorMake(0, player.velocity.dy);
+        }
+        
+        player.targetPosition = CGPointMake(player.targetPosition.x + positionAdjustment.x, player.targetPosition.y + positionAdjustment.y);
       }
     }
   }

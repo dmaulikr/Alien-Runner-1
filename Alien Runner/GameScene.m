@@ -112,6 +112,11 @@
     
     if (gid != 0) {
       CGRect intersection = CGRectIntersection(playerRect, [self rectForTileCoord:tileCoord]);
+      
+      if (!CGRectIsNull(intersection)) {
+        // Do we move the player horizontally or vertically?
+        BOOL resolveVertically = offset.x == 0 || (offset.y != 0 && intersection.size.height < intersection.size.width);
+      }
     }
   }
 }

@@ -79,7 +79,7 @@ static const BOOL kShowCollisionRect = YES;
   } else if (!self.didJump) {
     // Cancel jump
     if (self.gravityFlipped) {
-      if (self.velocity.dy > -kJumpCutOffSpeed) {
+      if (self.velocity.dy < -kJumpCutOffSpeed) {
         self.velocity = CGVectorMake(self.velocity.dx, -kJumpCutOffSpeed);
       } else {
         if (self.velocity.dy > kJumpCutOffSpeed) {

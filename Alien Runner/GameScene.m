@@ -240,6 +240,10 @@
   x = fminf(x, (self.map.mapSize.width * self.map.tileSize.width) - self.size.width * 0.5);
   y = fminf(y, (self.map.mapSize.height * self.map.tileSize.height) - self.size.height * 0.5);
   
+  // Align x and y to pixel grid
+  x = roundf(x * 2) / 2;
+  y = roundf(y * 2) / 2;
+  
   // Center view on camera's position in the map
   self.map.position = CGPointMake((self.size.width * 0.5) - x, (self.size.height * 0.5) - y);
 }

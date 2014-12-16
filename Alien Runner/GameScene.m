@@ -29,8 +29,12 @@
     // Sky blue background
     self.backgroundColor = [SKColor colorWithRed:0.81 green:0.91 blue:0.96 alpha:1.0];
     
+    // Get selected level
+    NSInteger selectedLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kSelectedLevel];
+    NSString *levelName = [NSString stringWithFormat:@"Level%d.tmx", selectedLevel];
+    
     // Load level
-    self.map = [JSTileMap mapNamed:@"Level1.tmx"];
+    self.map = [JSTileMap mapNamed:levelName];
     self.mainLayer = [self.map layerNamed:@"Main"];
     self.obstacleLayer = [self.map layerNamed:@"Obstacles"];
     [self addChild:self.map];

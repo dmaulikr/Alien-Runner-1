@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="180" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32">
+  <image source="Tileset.png" width="320" height="160"/>
+ </tileset>
+ <layer name="Background" width="180" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztmDEOwCAMA/OQdm3//8OysoUGJQ72SYwIOOIIYSaE2TXGXb2JIiJnZ/bmJeroz/xnjDewphfE+4+cPctbZ6KOkB0z5wYFuenHrtyc+BZB7ncMVNYF4lskywdqHrujfjKT5YPRuzK8DoOzij+NHaxkmOEePTD0vcw/jQ61L4SXk+vqA7RNCfM=
+  </data>
+ </layer>
+ <layer name="Decorations" width="180" height="10">
+  <data encoding="base64" compression="zlib">
+   eJzt1yEOgDAMBdBZpgCJ5v5nxEzhljV8xHtJU9X0u6atAczb0wGg0JUOAIXu0fuoWcfi/tV54D/6q4BvrN7SsyQFCVs6AECIPxIyHjxKAOo=
+  </data>
+ </layer>
+ <layer name="Main" width="180" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztmLEOgzAMRF1oJaQOTGnplv//SmBAYgD7RAxy6D3pbRgF6YidiNRHmswBTQe/h5BomWaWycJvclD87tSlDdHnvOq0+rvQGnryACREw8rrx5D8Bz2ghpUzZH9E6l+GzC6ZKZ1TtBlsbek7vHgf1BN0D7hqfiKkBKvXIG7xFP0faBzWjvRzq7d71ZFrsM6KZ+X5bOYMdUHMwkxHocY8R8rykucs9WcauSuLfl82AmDBFwY=
+  </data>
+ </layer>
+ <layer name="Obstacles" width="180" height="10">
+  <data encoding="base64" compression="zlib">
+   eJzt1zEOgCAMhWFuwsBFPbqDToiSQgkP/L+ki0mxiaVCCGuJswuoyOuLH2FZsycf2lS/pWpd0PfWO61zrHf+7djL6Q5gBfQrvKXg31cj1jS+/7A8xz5G3O88zlrcQYGn2h5gj1xa/qWpEF55nEPRSrV3VOuCLvWeyesrzXbrXa03/09OS6YMbA==
+  </data>
+ </layer>
+ <objectgroup name="Markers" width="180" height="10">
+  <object name="Player" x="54" y="142"/>
+ </objectgroup>
+</map>

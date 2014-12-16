@@ -15,12 +15,12 @@
  </layer>
  <layer name="Main" width="180" height="10">
   <data encoding="base64" compression="zlib">
-   eJztmMEOgjAMhocENWHgyYhHff+HtB5IOMyuDR2D+n/JF46M7F9HG8I+eZIT46PSuiI5kCP5Ju+MrwLv7wUCW3L7vMW+l2LOMgClaBg1SGofsgyAjPjDtVicdQCssMo1AHvCQ665f0PcGcfjQt4Yz/WWJkbSZ1jNWVqlXsnVgVQ98DIL+/asMeR7V+5cLa1Jp3QtR997T8yz8dQzxVVoTbR51tbz03af8vdI7xiNSzzm+QNH7gji
+   eJztmesKwjAMhaviBez0lw+g7/+QdmChjF6SZml0ng8Og+7H0u4s6VLnAAcfNAXdgl5Bj4qeCs+/EgQAlehlADTYfVS7t1QJSu6Dl4EUbx3AIHxBUrjfNdAjvtPJOhBD1vI1sCX99/IOtX4Lvi7Vil+vGfdEubGWNCn1Clo9BEqv4ezq8zoJYx/FPI9crKXxXg5MWXERisvW8kENaj37htzR4siUlN4+qKaf/7UPG/dnuWsOrdyxRNIv5/qZm8/3K8xvRsvPkrMFSr9u5NlFa6/Zo5TetR65Tlw/vwEPBQsb
   </data>
  </layer>
  <layer name="Obstacles" width="180" height="10">
   <data encoding="base64" compression="zlib">
-   eJzt1sEJADAIA0A38dH9d+wE4qtU5A4yQR5JBADwwykCADBV9V/8mVl09F42AdjGdsA+F5n+BIc=
+   eJzt1rEJACAMBEA3sXD/HZ0gqI0avYOHNA8hVUoBAE5oQQAAyMk/9486CPCuFsyz3dXcYucuWW8E2XSwdQXl
   </data>
  </layer>
  <objectgroup name="Markers">

@@ -12,6 +12,7 @@
 
 @property (nonatomic) BOOL didJumpPrevious;
 @property (nonatomic) BOOL canFlipGravity;
+@property (nonatomic) SKAction *runningAnimation;
 
 @end
 
@@ -28,6 +29,19 @@ static const BOOL kShowCollisionRect = YES;
 {
   self = [super initWithImageNamed:@"p1_walk01"];
   if (self) {
+    
+    // Create array for frames for run animation
+    NSMutableArray *walkFrames = [NSMutableArray array];
+    for (int i = 1; i < 12; i++) {
+      SKTexture *frame = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"p1_walk%02d", i]];
+      [walkFrames addObject:frame];
+    }
+    
+    // Create action for run animation
+    SKAction *animation = [SKAction animateWithTextures:walkFrames timePerFrame:(1.0/15.0) resize:NO restore:NO];
+    self.runningAnimation = [SKAction repeatActionForever:animation];
+    
+    [self runAction:self.runningAnimation];
     
     // Set gravity to pull down by default
     self.gravityMultiplier = 1;

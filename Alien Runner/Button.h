@@ -9,11 +9,20 @@
 #import <SpriteKit/SpriteKit.h>
 #import "SoundManager.h"
 
+@class Button;
+
+@protocol ButtonDelegate <NSObject>
+
+-(void)buttonPressed:(Button*)button;
+
+@end
+
 @interface Button : SKSpriteNode
 
 @property (nonatomic) CGFloat pressedScale;
 @property (nonatomic, readonly, weak) id pressedTarget;
 @property (nonatomic, readonly) SEL pressedAction;
+@property (nonatomic, weak) id<ButtonDelegate> delegate;
 @property (nonatomic) Sound *pressedSound;
 @property (nonatomic) BOOL disabled;
 

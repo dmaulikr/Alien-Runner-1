@@ -92,6 +92,10 @@
       
       // Disable "Enable Strict Checking of objc_msgSend calls" in project settings...
       objc_msgSend(self.pressedTarget, self.pressedAction);
+      
+      if (self.delegate) {
+        [self.delegate buttonPressed:self];
+      }
     }
   }
 }

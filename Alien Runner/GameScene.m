@@ -70,6 +70,13 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+  // Reset - for debugging
+  UITouch *touch = [touches anyObject];
+  if ([touch locationInNode:self].x < 50) {
+    self.player.position = [self getMarkerPosition:@"Player"];
+    self.player.velocity = CGVectorMake(0, 0);
+    self.player.gravityMultiplier = 1;
+  }
   self.player.didJump = NO;
 }
 

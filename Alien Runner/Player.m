@@ -40,13 +40,24 @@ static const BOOL kShowCollisionRect = YES;
   return self.gravityMultiplier == -1;
 }
 
+- (void)setGravityMultiplier:(CGFloat)gravityMultiplier
+{
+  _gravityMultiplier = gravityMultiplier;
+  // Set the texture orientation to match the pull of gravity (flip the image)
+  self.yScale = gravityMultiplier;
+}
+
 - (void)update
 {
   if (kShowCollisionRect) {
     [self removeAllChildren];
     
     SKShapeNode *box = [SKShapeNode node];
-    box.path = CGPathCreateWithRect([self collisionRectAtTarget], nil);
+    CGRect rect = [self collisionRectAtTarget];
+    if (self.gravityFlipped) {
+      rect.origin.y -= 4;
+    }
+    box.path = CGPathCreateWithRect(rect, nil);
     box.strokeColor = [SKColor redColor];
     box.lineWidth = 0.1;
     box.position = CGPointMake(-self.targetPosition.x, -self.targetPosition.y);
@@ -100,9 +111,7 @@ static const BOOL kShowCollisionRect = YES;
 - (CGRect)collisionRectAtTarget
 {
   // Calculate smaller rectangle
-  CGRect collisionRect = CGRectMake(self.targetPosition.x - (self.size.width * self.anchorPoint.x) + 4,
-                                    self.targetPosition.y - (self.size.height * self.anchorPoint.y),
-                                    self.size.width - 8, self.size.height - 4);
+  CGRect collisionRect = CGRectMake(self.targetPosition.x - (self.size.width * self.anchorPoint.x) + 4, self.targetPosition.y - (self.size.height * self.anchorPoint.y), self.size.width - 8, self.size.height - 4);
   
   if (self.gravityFlipped) {
     // move rectangle up because the bottom is now at the top

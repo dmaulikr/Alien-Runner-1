@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Kenneth Wilcox. All rights reserved.
 //
 
+#import "MainMenuScene.h"
 #import "GameScene.h"
 #import "JSTileMap.h"
 #import "Player.h"
@@ -62,10 +63,7 @@
 
 - (void)gameOver
 {
-  self.player.position = [self getMarkerPosition:@"Player"];
-  self.player.velocity = CGVectorMake(0, 0);
-  self.player.gravityMultiplier = 1;
-  self.player.state = Jumping;
+  [self.view presentScene:[[MainMenuScene alloc] initWithSize:self.size]];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

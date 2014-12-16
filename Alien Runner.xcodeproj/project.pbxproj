@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0224081A3FFEA000F0A2C1 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0224071A3FFEA000F0A2C1 /* MainMenuScene.m */; };
 		BE8CDED61A3D5E58004BD7FB /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */; };
 		BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */; };
 		BE8CDED91A3D5E6D004BD7FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8CDED81A3D5E6D004BD7FB /* libz.dylib */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE0224061A3FFEA000F0A2C1 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
+		BE0224071A3FFEA000F0A2C1 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
 		BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
 		BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */,
 				BEAC41401A3D5D55003E8E8C /* AppDelegate.h */,
 				BEAC41411A3D5D55003E8E8C /* AppDelegate.m */,
+				BE0224061A3FFEA000F0A2C1 /* MainMenuScene.h */,
+				BE0224071A3FFEA000F0A2C1 /* MainMenuScene.m */,
 				BEAC41431A3D5D55003E8E8C /* GameScene.h */,
 				BEAC41441A3D5D55003E8E8C /* GameScene.m */,
 				BEAC41481A3D5D55003E8E8C /* GameViewController.h */,
@@ -283,6 +288,7 @@
 			files = (
 				BEAC414A1A3D5D55003E8E8C /* GameViewController.m in Sources */,
 				BE8CDED61A3D5E58004BD7FB /* JSTileMap.m in Sources */,
+				BE0224081A3FFEA000F0A2C1 /* MainMenuScene.m in Sources */,
 				BEAC41421A3D5D55003E8E8C /* AppDelegate.m in Sources */,
 				BEAC41451A3D5D55003E8E8C /* GameScene.m in Sources */,
 				BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */,

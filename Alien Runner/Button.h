@@ -15,8 +15,10 @@
 @property (nonatomic, readonly, weak) id pressedTarget;
 @property (nonatomic, readonly) SEL pressedAction;
 @property (nonatomic) Sound *pressedSound;
+@property (nonatomic) BOOL disabled;
 
 + (instancetype)spriteNodeWithTexture:(SKTexture *)texture;
++ (instancetype)spriteNodeWithTexture:(SKTexture *)texture andDisabledTexture:(SKTexture*)disabledTexture;
 - (void)setPressedTarget:(id)pressedTarget withAction:(SEL)pressedAction;
 
 @end

@@ -13,14 +13,22 @@
 
 @property (nonatomic) CGRect fullSizeFrame;
 @property (nonatomic) BOOL pressed;
-
+@property (nonatomic) SKTexture *enabledTexture;
+@property (nonatomic) SKTexture *disabledTexture;
 @end
 
 @implementation Button
 
 + (instancetype)spriteNodeWithTexture:(SKTexture *)texture
 {
+  return [Button spriteNodeWithTexture:texture andDisabledTexture:nil];
+}
+
++(instancetype)spriteNodeWithTexture:(SKTexture *)texture andDisabledTexture:(SKTexture*)disabledTexture
+{
   Button *instance = [super spriteNodeWithTexture:texture];
+  instance.enabledTexture = texture;
+  instance.disabledTexture = disabledTexture;
   instance.pressedScale = 0.9;
   instance.userInteractionEnabled = YES;
   return instance;
@@ -30,6 +38,19 @@
 {
   _pressedTarget = pressedTarget;
   _pressedAction = pressedAction;
+}
+
+- (void)setDisabled:(BOOL)disabled
+{
+  if (_disabled != disabled) {
+    _disabled = disabled;
+    if (_disabled && self.disabledTexture) {
+      self.texture = self.disabledTexture;
+    } else {
+      self.texture = self.enabledTexture;
+    }
+    self.userInteractionEnabled = !_disabled;
+  }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

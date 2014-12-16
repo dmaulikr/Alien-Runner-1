@@ -12,5 +12,6 @@
 
 extern NSString *const kHighestUnlockedLevel;
 extern NSString *const kSelectedLevel;
+extern const NSInteger kHighestLevel;
 
 @end

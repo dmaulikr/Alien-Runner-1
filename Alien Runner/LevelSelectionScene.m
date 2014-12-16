@@ -7,6 +7,8 @@
 //
 
 #import "LevelSelectionScene.h"
+#import "Constants.h"
+#import "MainMenuScene.h"
 
 @implementation LevelSelectionScene
 
@@ -29,10 +31,10 @@
     [self addChild:layoutNode];
     
     SKTexture *buttonDisabledTexture = [SKTexture textureWithImageNamed:@"LevelLocked"];
-    int levelUnlocked = 2;
+    NSInteger levelUnlocked = [[NSUserDefaults standardUserDefaults] integerForKey:kHighestUnlockedLevel];
     
     // Add buttons for levels
-    for (int i = 1; i <= 3; i++) {
+    for (int i = 1; i <= kHighestLevel; i++) {
       SKTexture *buttonTexture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"Level%d", i]];
       Button *levelButton = [Button spriteNodeWithTexture:buttonTexture andDisabledTexture:buttonDisabledTexture];
       levelButton.disabled = (i > levelUnlocked);
@@ -51,7 +53,12 @@
 
 - (void)buttonPressed:(Button *)button
 {
-  NSLog(@"Pressed button %@", button.name);
+  // Save selected level.
+  [[NSUserDefaults standardUserDefaults] setInteger:[button.name integerValue] forKey:kSelectedLevel];
+  
+  // Switch to main menu.
+  MainMenuScene *mainMenu = [[MainMenuScene alloc] initWithSize:self.size];
+  [self.view presentScene:mainMenu transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.6]];
 }
 
 @end

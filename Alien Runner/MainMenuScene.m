@@ -11,6 +11,7 @@
 #import "GameScene.h"
 #import "Player.h"
 #import "Button.h"
+#import "Constants.h"
 
 @implementation MainMenuScene
 
@@ -29,15 +30,16 @@
     title.position = CGPointMake(size.width * 0.5, size.height - 100);
     [self addChild:title];
     
-    // Setup alien.
+    // Setup alien
     Player *alien = [[Player alloc] init];
     alien.position = CGPointMake(size.width * 0.5, size.height - 150);
     alien.state = Running;
     [self addChild:alien];
     
-    // Create label node to display level.
+    // Create label node to display level
+    NSInteger selectedLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kSelectedLevel];
     SKLabelNode *levelDisplay = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
-    levelDisplay.text = @"Level 1";
+    levelDisplay.text = [NSString stringWithFormat:@"Level %d", (int)selectedLevel];
     levelDisplay.fontColor = [SKColor colorWithRed:0.518 green:0.78 blue:1.0 alpha:1.0];
     levelDisplay.fontSize = 15;
     levelDisplay.position = CGPointMake(size.width * 0.5, size.height - 195);

@@ -12,5 +12,6 @@
 
 NSString *const kHighestUnlockedLevel = @"HighestUnlockedLevel";
 NSString *const kSelectedLevel = @"SelectedLevel";
+const NSInteger kHighestLevel = 3;
 
 @end

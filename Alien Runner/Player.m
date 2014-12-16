@@ -78,11 +78,11 @@ static const BOOL kShowCollisionRect = YES;
         break;
         
       case Jumping:
-        self.texture = [SKTexture textureWithImageNamed:@"p1_jump.png"];
+        self.texture = [SKTexture textureWithImageNamed:@"p1_jump"];
         break;
       
       case Hurt:
-        self.texture = [SKTexture textureWithImageNamed:@"p1_hurt.png"];
+        self.texture = [SKTexture textureWithImageNamed:@"p1_hurt"];
         break;
         
       default:

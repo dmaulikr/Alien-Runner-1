@@ -12,7 +12,7 @@
 @interface Player()
 
 @property (nonatomic) BOOL didJumpPrevious;
-@property (nonatomic) BOOL canFlipGravity;
+@property (nonatomic) BOOL canDoubleJump;
 @property (nonatomic) SKAction *runningAnimation;
 
 @end
@@ -23,6 +23,7 @@ static const CGFloat kGravity = -0.24;
 static const CGFloat kAcceleration = 0.07;
 static const CGFloat kMaxSpeed = 3.5;
 static const CGFloat kJumpSpeed = 5.5;
+static const CGFloat kDoubleJumpSpeed = 6.5;
 static const CGFloat kJumpCutOffSpeed = 2.5;
 static const BOOL kShowCollisionRect = NO;
 
@@ -123,7 +124,7 @@ static const BOOL kShowCollisionRect = NO;
     
     // Prevent ability to flip gravity when player lands on the ground
     if (self.onGround) {
-      self.canFlipGravity = NO;
+      self.canDoubleJump = NO;
       self.state = Running;
     } else {
       self.state = Jumping;
@@ -136,18 +137,14 @@ static const BOOL kShowCollisionRect = NO;
         
         // perform jump
         self.velocity = CGVectorMake(self.velocity.dx, kJumpSpeed * self.gravityMultiplier);
-        self.canFlipGravity = YES;
-      } else if (self.canFlipGravity) {
-        // Flip gravity
-        self.gravityMultiplier *= -1;
+        self.canDoubleJump = YES;
+      } else if (self.canDoubleJump) {
+        [[SoundManager sharedManager] playSound:@"jump.caf"];
         
-        if (self.gravityMultiplier == 1) {
-          [[SoundManager sharedManager] playSound:@"gravityUp.caf"];
-        } else {
-          [[SoundManager sharedManager] playSound:@"gravityDown.caf"];
-        }
+        // perform double jump
+        self.velocity = CGVectorMake(self.velocity.dx, kDoubleJumpSpeed * self.gravityMultiplier);
         
-        self.canFlipGravity = NO;
+        self.canDoubleJump = NO;
       }
     } else if (!self.didJump) {
       // Cancel jump

@@ -11,6 +11,7 @@
 		BE02240B1A4002E900F0A2C1 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE02240A1A4002E900F0A2C1 /* SoundManager.m */; };
 		BE02240F1A40032400F0A2C1 /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = BE02240E1A40032400F0A2C1 /* Button.m */; };
 		BE0224121A4007E600F0A2C1 /* LevelSelectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0224111A4007E600F0A2C1 /* LevelSelectionScene.m */; };
+		BE0224151A400FB500F0A2C1 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0224141A400FB500F0A2C1 /* Constants.m */; };
 		BE8CDED61A3D5E58004BD7FB /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */; };
 		BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */; };
 		BE8CDED91A3D5E6D004BD7FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8CDED81A3D5E6D004BD7FB /* libz.dylib */; };
@@ -49,6 +50,8 @@
 		BE02240E1A40032400F0A2C1 /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
 		BE0224101A4007E600F0A2C1 /* LevelSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectionScene.h; sourceTree = "<group>"; };
 		BE0224111A4007E600F0A2C1 /* LevelSelectionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectionScene.m; sourceTree = "<group>"; };
+		BE0224131A400FB500F0A2C1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		BE0224141A400FB500F0A2C1 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
 		BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
 		BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 		BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */ = {
 			isa = PBXGroup;
 			children = (
+				BE0224131A400FB500F0A2C1 /* Constants.h */,
+				BE0224141A400FB500F0A2C1 /* Constants.m */,
 				BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */,
 				BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */,
 				BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */,
@@ -320,6 +325,7 @@
 				BE02240F1A40032400F0A2C1 /* Button.m in Sources */,
 				BE8CDEEE1A3D6389004BD7FB /* Player.m in Sources */,
 				BEAC413F1A3D5D55003E8E8C /* main.m in Sources */,
+				BE0224151A400FB500F0A2C1 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

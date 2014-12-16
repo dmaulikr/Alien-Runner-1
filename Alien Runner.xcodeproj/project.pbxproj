@@ -12,6 +12,7 @@
 		BE02240F1A40032400F0A2C1 /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = BE02240E1A40032400F0A2C1 /* Button.m */; };
 		BE0224121A4007E600F0A2C1 /* LevelSelectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0224111A4007E600F0A2C1 /* LevelSelectionScene.m */; };
 		BE0224151A400FB500F0A2C1 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0224141A400FB500F0A2C1 /* Constants.m */; };
+		BE0224171A40114700F0A2C1 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE0224161A40114700F0A2C1 /* UserDefaults.plist */; };
 		BE8CDED61A3D5E58004BD7FB /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */; };
 		BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */; };
 		BE8CDED91A3D5E6D004BD7FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8CDED81A3D5E6D004BD7FB /* libz.dylib */; };
@@ -52,6 +53,7 @@
 		BE0224111A4007E600F0A2C1 /* LevelSelectionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectionScene.m; sourceTree = "<group>"; };
 		BE0224131A400FB500F0A2C1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BE0224141A400FB500F0A2C1 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		BE0224161A40114700F0A2C1 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
 		BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
 		BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				BEAC414E1A3D5D55003E8E8C /* Images.xcassets */,
 				BEAC41501A3D5D55003E8E8C /* LaunchScreen.xib */,
 				BEAC413C1A3D5D55003E8E8C /* Supporting Files */,
+				BE0224161A40114700F0A2C1 /* UserDefaults.plist */,
 			);
 			path = "Alien Runner";
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				BEAC414D1A3D5D55003E8E8C /* Main.storyboard in Resources */,
 				BE8CDEDC1A3D5EE3004BD7FB /* LICENSE in Resources */,
 				BE8CDEE91A3D6153004BD7FB /* Tileset@2x.png in Resources */,
+				BE0224171A40114700F0A2C1 /* UserDefaults.plist in Resources */,
 				BE8CDEE51A3D6153004BD7FB /* Level1.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

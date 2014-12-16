@@ -65,6 +65,7 @@
   self.player.position = [self getMarkerPosition:@"Player"];
   self.player.velocity = CGVectorMake(0, 0);
   self.player.gravityMultiplier = 1;
+  self.player.state = Jumping;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -181,17 +182,18 @@
     // Fallen out of the world
     [self gameOver];
   } else {
-    // Collide player with world
-    [self collide:self.player withLayer:self.mainLayer resolveWithMove:YES];
-    
-    // Collide with obstacles.
-    BOOL collision = [self collide:self.player withLayer:self.obstacleLayer resolveWithMove:NO];
-    if (collision) {
-      [self gameOver];
-    } else {
+    if (self.player.state != Hurt) {
+      // Collide player with world
+      [self collide:self.player withLayer:self.mainLayer resolveWithMove:YES];
+      
+      // Collide with obstacles.
+      BOOL collision = [self collide:self.player withLayer:self.obstacleLayer resolveWithMove:NO];
+      if (collision) {
+        [self.player kill];
+      }
+    }
       // Move player
       self.player.position = self.player.targetPosition;
-    }
   }
   
   // Update position of camera

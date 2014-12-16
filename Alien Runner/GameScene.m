@@ -104,24 +104,49 @@
   [self.view presentScene:mainMenu];
 }
 
+-(void)touchStateChanged:(CGPoint)location buttonState:(BOOL)state
+{
+  if (location.x < 150) {
+    self.player.moveLeft = state;
+  } else if (location.x < 300) {
+    self.player.moveRight = state;
+  } else {
+    self.player.didJump = state;
+  }
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  self.player.didJump = YES;
+  for (UITouch *touch in touches) {
+    CGPoint touchLocation = [touch locationInNode:self];
+    [self touchStateChanged:touchLocation buttonState:YES];
+  }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  
+  for (UITouch *touch in touches) {
+    CGPoint prevTouchLocation = [touch  previousLocationInNode:self];
+    [self touchStateChanged:prevTouchLocation buttonState:NO];
+    CGPoint touchLocation = [touch locationInNode:self];
+    [self touchStateChanged:touchLocation buttonState:YES];
+  }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  self.player.didJump = NO;
+  for (UITouch *touch in touches) {
+    CGPoint touchLocation = [touch locationInNode:self];
+    [self touchStateChanged:touchLocation buttonState:NO];
+  }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  self.player.didJump = NO;
+  for (UITouch *touch in touches) {
+    CGPoint touchLocation = [touch locationInNode:self];
+    [self touchStateChanged:touchLocation buttonState:NO];
+  }
 }
 
 - (BOOL)validTileCoord:(CGPoint)tileCoord

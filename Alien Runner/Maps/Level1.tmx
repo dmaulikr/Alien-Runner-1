@@ -24,6 +24,6 @@
   </data>
  </layer>
  <objectgroup name="Markers">
-  <object name="Player" x="49" y="255"/>
+  <object name="Player" x="80" y="240"/>
  </objectgroup>
 </map>

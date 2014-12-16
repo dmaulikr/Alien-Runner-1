@@ -129,7 +129,7 @@
           positionAdjustment.y = intersection.size.height * offset.y;
           player.velocity = CGVectorMake(player.velocity.dx, 0);
           
-          if (offset.y == 1) {
+          if (offset.y == player.gravityMultiplier) {
             // player is touching the ground
             player.onGround = YES;
           }

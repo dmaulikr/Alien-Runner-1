@@ -81,7 +81,15 @@
     
     [userDefaults synchronize];
   }
-  [self.view presentScene:[[MainMenuScene alloc] initWithSize:self.size]];
+  
+  MainMenuScene *mainMenu = [[MainMenuScene alloc] initWithSize:self.size];
+  if (completedLevel) {
+    mainMenu.mode = LevelCompleted;
+  } else {
+    mainMenu.mode = LevelFailed;
+  }
+  
+  [self.view presentScene:mainMenu];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

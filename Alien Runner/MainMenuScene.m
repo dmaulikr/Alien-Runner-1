@@ -13,6 +13,11 @@
 #import "Button.h"
 #import "Constants.h"
 
+@interface MainMenuScene()
+@property SKLabelNode *title;
+@property Button *playButton;
+@end
+
 @implementation MainMenuScene
 
 - (instancetype)initWithSize:(CGSize)size
@@ -23,12 +28,12 @@
     self.backgroundColor = [SKColor colorWithRed:0.16 green:0.27 blue:0.3 alpha:1.0];
     
     // Setup title node
-    SKLabelNode *title = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
-    title.text = @"Alien Runner";
-    title.fontColor = [SKColor colorWithRed:0.518 green:0.78 blue:1.0 alpha:1.0];
-    title.fontSize = 40;
-    title.position = CGPointMake(size.width * 0.5, size.height - 100);
-    [self addChild:title];
+    self.title = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
+    self.title.text = @"Alien Runner";
+    self.title.fontColor = [SKColor colorWithRed:0.518 green:0.78 blue:1.0 alpha:1.0];
+    self.title.fontSize = 40;
+    self.title.position = CGPointMake(size.width * 0.5, size.height - 100);
+    [self addChild:self.title];
     
     // Setup alien
     Player *alien = [[Player alloc] init];
@@ -46,10 +51,10 @@
     [self addChild:levelDisplay];
     
     // Create Play button
-    Button *playButton = [Button spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"ButtonPlay"]];
-    playButton.position = CGPointMake(size.width * 0.5 - 55, 90);
-    [playButton setPressedTarget:self withAction:@selector(pressedPlayButton)];
-    [self addChild:playButton];
+    self.playButton = [Button spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"ButtonPlay"]];
+    self.playButton.position = CGPointMake(size.width * 0.5 - 55, 90);
+    [self.playButton setPressedTarget:self withAction:@selector(pressedPlayButton)];
+    [self addChild:self.playButton];
     
     // Create level select button
     Button *levelButton = [Button spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"ButtonLevel"]];
@@ -59,6 +64,27 @@
     
   }
   return self;
+}
+
+- (void)setMode:(MenuMode)mode
+{
+  _mode = mode;
+  switch (mode) {
+    case LevelFailed:
+      self.title.text = @"Game Over";
+      self.playButton.texture = [SKTexture textureWithImageNamed:@"ButtonAgain"];
+      break;
+    
+    case LevelCompleted:
+      self.title.text = @"Level Complete";
+      self.playButton.texture = [SKTexture textureWithImageNamed:@"ButtonPlay"];
+      break;
+      
+    default:
+      self.title.text = @"Alien Runner";
+      self.playButton.texture = [SKTexture textureWithImageNamed:@"ButtonPlay"];
+      break;
+  }
 }
 
 - (void)pressedPlayButton

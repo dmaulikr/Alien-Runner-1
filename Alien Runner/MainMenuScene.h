@@ -8,6 +8,14 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+typedef enum : NSUInteger {
+  Home,
+  LevelFailed,
+  LevelCompleted,
+} MenuMode;
+
 @interface MainMenuScene : SKScene
+
+@property (nonatomic) MenuMode mode;
 
 @end

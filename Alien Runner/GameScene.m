@@ -58,6 +58,13 @@
   return position;
 }
 
+- (void)gameOver
+{
+  self.player.position = [self getMarkerPosition:@"Player"];
+  self.player.velocity = CGVectorMake(0, 0);
+  self.player.gravityMultiplier = 1;
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
   self.player.didJump = YES;
@@ -73,9 +80,7 @@
   // Reset - for debugging
   UITouch *touch = [touches anyObject];
   if ([touch locationInNode:self].x < 50) {
-    self.player.position = [self getMarkerPosition:@"Player"];
-    self.player.velocity = CGVectorMake(0, 0);
-    self.player.gravityMultiplier = 1;
+    [self gameOver];
   }
   self.player.didJump = NO;
 }
@@ -156,11 +161,17 @@
   // Update player
   [self.player update];
   
-  // Collide player with world
-  [self collide:self.player withLayer:self.mainLayer];
-  
-  // Move player
-  self.player.position = self.player.targetPosition;
+  // Check if the player has fallen out of the world
+  if (self.player.targetPosition.y < -self.player.size.height * 2 || self.player.targetPosition.y > (self.map.mapSize.height * self.map.tileSize.height) + self.player.size.height * 2) {
+    // Fallen out of the world
+    [self gameOver];
+  } else {
+    // Collide player with world
+    [self collide:self.player withLayer:self.mainLayer];
+    
+    // Move player
+    self.player.position = self.player.targetPosition;
+  }
   
   // Update position of camera
   self.camera.position = CGPointMake(self.player.position.x + (self.size.width * 0.25), self.player.position.y);

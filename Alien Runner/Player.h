@@ -26,5 +26,6 @@ typedef enum : NSUInteger {
 - (void)update;
 - (CGRect)collisionRectAtTarget;
 - (BOOL)gravityFlipped;
+- (void)kill;
 
 @end

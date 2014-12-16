@@ -109,36 +109,38 @@ static const BOOL kShowCollisionRect = YES;
   // Apply gravity
   self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + kGravity * self.gravityMultiplier);
   
-  // Apply acceleration
-  self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
-  
-  // Prevent ability to flip gravity when player lands on the ground
-  if (self.onGround) {
-    self.canFlipGravity = NO;
-    self.state = Running;
-  } else {
-    self.state = Jumping;
-  }
-  
-  if (self.didJump && !self.didJumpPrevious) {
-    // Starting a jump
+  if (self.state != Hurt) {
+    // Apply acceleration
+    self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
+    
+    // Prevent ability to flip gravity when player lands on the ground
     if (self.onGround) {
-      // perform jump
-      self.velocity = CGVectorMake(self.velocity.dx, kJumpSpeed * self.gravityMultiplier);
-      self.canFlipGravity = YES;
-    } else if (self.canFlipGravity) {
-      // Flip gravity
-      self.gravityMultiplier *= -1;
       self.canFlipGravity = NO;
+      self.state = Running;
+    } else {
+      self.state = Jumping;
     }
-  } else if (!self.didJump) {
-    // Cancel jump
-    if (self.gravityFlipped) {
-      if (self.velocity.dy < -kJumpCutOffSpeed) {
-        self.velocity = CGVectorMake(self.velocity.dx, -kJumpCutOffSpeed);
-      } else {
-        if (self.velocity.dy > kJumpCutOffSpeed) {
-          self.velocity = CGVectorMake(self.velocity.dx, kJumpCutOffSpeed);
+    
+    if (self.didJump && !self.didJumpPrevious) {
+      // Starting a jump
+      if (self.onGround) {
+        // perform jump
+        self.velocity = CGVectorMake(self.velocity.dx, kJumpSpeed * self.gravityMultiplier);
+        self.canFlipGravity = YES;
+      } else if (self.canFlipGravity) {
+        // Flip gravity
+        self.gravityMultiplier *= -1;
+        self.canFlipGravity = NO;
+      }
+    } else if (!self.didJump) {
+      // Cancel jump
+      if (self.gravityFlipped) {
+        if (self.velocity.dy < -kJumpCutOffSpeed) {
+          self.velocity = CGVectorMake(self.velocity.dx, -kJumpCutOffSpeed);
+        } else {
+          if (self.velocity.dy > kJumpCutOffSpeed) {
+            self.velocity = CGVectorMake(self.velocity.dx, kJumpCutOffSpeed);
+          }
         }
       }
     }
@@ -163,6 +165,12 @@ static const BOOL kShowCollisionRect = YES;
   }
   
   return collisionRect;
+}
+
+-(void)kill
+{
+  self.state = Hurt;
+  self.velocity = CGVectorMake(0, kJumpSpeed * self.gravityMultiplier);
 }
 
 @end

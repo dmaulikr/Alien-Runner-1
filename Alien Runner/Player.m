@@ -7,6 +7,7 @@
 //
 
 #import "Player.h"
+#import "SoundManager.h"
 
 @interface Player()
 
@@ -81,12 +82,11 @@ static const BOOL kShowCollisionRect = NO;
         break;
         
       case Jumping:
-        // todo add jumping sound
         self.texture = [SKTexture textureWithImageNamed:@"p1_jump"];
         break;
       
       case Hurt:
-        // todo add hurt sound
+        [[SoundManager sharedManager] playSound:@"playerKilled.caf"];
         self.texture = [SKTexture textureWithImageNamed:@"p1_hurt"];
         break;
         
@@ -132,16 +132,21 @@ static const BOOL kShowCollisionRect = NO;
     if (self.didJump && !self.didJumpPrevious) {
       // Starting a jump
       if (self.onGround) {
-        // TODO add jump sound
+        [[SoundManager sharedManager] playSound:@"jump.caf"];
         
         // perform jump
         self.velocity = CGVectorMake(self.velocity.dx, kJumpSpeed * self.gravityMultiplier);
         self.canFlipGravity = YES;
       } else if (self.canFlipGravity) {
-        // TODO add flip gravity sound
-        
         // Flip gravity
         self.gravityMultiplier *= -1;
+        
+        if (self.gravityMultiplier == 1) {
+          [[SoundManager sharedManager] playSound:@"gravityUp.caf"];
+        } else {
+          [[SoundManager sharedManager] playSound:@"gravityDown.caf"];
+        }
+        
         self.canFlipGravity = NO;
       }
     } else if (!self.didJump) {

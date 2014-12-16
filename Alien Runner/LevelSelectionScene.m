@@ -40,6 +40,7 @@
       levelButton.disabled = (i > levelUnlocked);
       levelButton.position = CGPointMake((i - 1) * 50, 0);
       levelButton.name = [NSString stringWithFormat:@"%d",i];
+      levelButton.pressedSound = [Sound soundNamed:@"buttonPressed.caf"];
       levelButton.delegate = self;
       [layoutNode addChild:levelButton];
     }

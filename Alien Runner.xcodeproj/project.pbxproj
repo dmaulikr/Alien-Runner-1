@@ -15,6 +15,13 @@
 		BE0224171A40114700F0A2C1 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE0224161A40114700F0A2C1 /* UserDefaults.plist */; };
 		BE88D56D1A40720200B40AD5 /* Level2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BE88D56B1A40720200B40AD5 /* Level2.tmx */; };
 		BE88D56E1A40720200B40AD5 /* Level3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BE88D56C1A40720200B40AD5 /* Level3.tmx */; };
+		BE88D57E1A408BDD00B40AD5 /* buttonPressed.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE88D5701A408BDD00B40AD5 /* buttonPressed.caf */; };
+		BE88D5801A408BDD00B40AD5 /* gameOver.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE88D5721A408BDD00B40AD5 /* gameOver.caf */; };
+		BE88D5821A408BDD00B40AD5 /* gravityDown.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE88D5741A408BDD00B40AD5 /* gravityDown.caf */; };
+		BE88D5841A408BDD00B40AD5 /* gravityUp.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE88D5761A408BDD00B40AD5 /* gravityUp.caf */; };
+		BE88D5861A408BDD00B40AD5 /* jump.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE88D5781A408BDD00B40AD5 /* jump.caf */; };
+		BE88D5881A408BDD00B40AD5 /* levelComplete.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE88D57A1A408BDD00B40AD5 /* levelComplete.caf */; };
+		BE88D58A1A408BDD00B40AD5 /* playerKilled.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE88D57C1A408BDD00B40AD5 /* playerKilled.caf */; };
 		BE8CDED61A3D5E58004BD7FB /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */; };
 		BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */; };
 		BE8CDED91A3D5E6D004BD7FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8CDED81A3D5E6D004BD7FB /* libz.dylib */; };
@@ -58,6 +65,13 @@
 		BE0224161A40114700F0A2C1 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		BE88D56B1A40720200B40AD5 /* Level2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level2.tmx; sourceTree = "<group>"; };
 		BE88D56C1A40720200B40AD5 /* Level3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level3.tmx; sourceTree = "<group>"; };
+		BE88D5701A408BDD00B40AD5 /* buttonPressed.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = buttonPressed.caf; sourceTree = "<group>"; };
+		BE88D5721A408BDD00B40AD5 /* gameOver.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.caf; sourceTree = "<group>"; };
+		BE88D5741A408BDD00B40AD5 /* gravityDown.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gravityDown.caf; sourceTree = "<group>"; };
+		BE88D5761A408BDD00B40AD5 /* gravityUp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gravityUp.caf; sourceTree = "<group>"; };
+		BE88D5781A408BDD00B40AD5 /* jump.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = jump.caf; sourceTree = "<group>"; };
+		BE88D57A1A408BDD00B40AD5 /* levelComplete.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = levelComplete.caf; sourceTree = "<group>"; };
+		BE88D57C1A408BDD00B40AD5 /* playerKilled.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = playerKilled.caf; sourceTree = "<group>"; };
 		BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
 		BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
 		BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
@@ -116,6 +130,20 @@
 			name = SoundManager;
 			sourceTree = "<group>";
 		};
+		BE88D56F1A408BDD00B40AD5 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BE88D5701A408BDD00B40AD5 /* buttonPressed.caf */,
+				BE88D5721A408BDD00B40AD5 /* gameOver.caf */,
+				BE88D5741A408BDD00B40AD5 /* gravityDown.caf */,
+				BE88D5761A408BDD00B40AD5 /* gravityUp.caf */,
+				BE88D5781A408BDD00B40AD5 /* jump.caf */,
+				BE88D57A1A408BDD00B40AD5 /* levelComplete.caf */,
+				BE88D57C1A408BDD00B40AD5 /* playerKilled.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +194,7 @@
 				BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */,
 				BE8CDEEA1A3D632C004BD7FB /* Graphics.atlas */,
 				BE8CDEDF1A3D6153004BD7FB /* Maps */,
+				BE88D56F1A408BDD00B40AD5 /* Sounds */,
 				BE0224131A400FB500F0A2C1 /* Constants.h */,
 				BE0224141A400FB500F0A2C1 /* Constants.m */,
 				BEAC41401A3D5D55003E8E8C /* AppDelegate.h */,
@@ -298,13 +327,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE88D5801A408BDD00B40AD5 /* gameOver.caf in Resources */,
+				BE88D58A1A408BDD00B40AD5 /* playerKilled.caf in Resources */,
 				BE8CDEE81A3D6153004BD7FB /* Tileset.png in Resources */,
 				BEAC41521A3D5D55003E8E8C /* LaunchScreen.xib in Resources */,
 				BE88D56E1A40720200B40AD5 /* Level3.tmx in Resources */,
+				BE88D5881A408BDD00B40AD5 /* levelComplete.caf in Resources */,
+				BE88D5821A408BDD00B40AD5 /* gravityDown.caf in Resources */,
+				BE88D5861A408BDD00B40AD5 /* jump.caf in Resources */,
 				BE8CDEEB1A3D632C004BD7FB /* Graphics.atlas in Resources */,
 				BEAC414F1A3D5D55003E8E8C /* Images.xcassets in Resources */,
 				BEAC414D1A3D5D55003E8E8C /* Main.storyboard in Resources */,
 				BE8CDEDC1A3D5EE3004BD7FB /* LICENSE in Resources */,
+				BE88D5841A408BDD00B40AD5 /* gravityUp.caf in Resources */,
+				BE88D57E1A408BDD00B40AD5 /* buttonPressed.caf in Resources */,
 				BE8CDEE91A3D6153004BD7FB /* Tileset@2x.png in Resources */,
 				BE0224171A40114700F0A2C1 /* UserDefaults.plist in Resources */,
 				BE8CDEE51A3D6153004BD7FB /* Level1.tmx in Resources */,

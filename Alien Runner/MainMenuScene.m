@@ -53,12 +53,14 @@
     // Create Play button
     self.playButton = [Button spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"ButtonPlay"]];
     self.playButton.position = CGPointMake(size.width * 0.5 - 55, 90);
+    self.playButton.pressedSound = [Sound soundNamed:@"buttonPressed.caf"];
     [self.playButton setPressedTarget:self withAction:@selector(pressedPlayButton)];
     [self addChild:self.playButton];
     
     // Create level select button
     Button *levelButton = [Button spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"ButtonLevel"]];
     levelButton.position = CGPointMake(size.width * 0.5 + 55, 90);
+    levelButton.pressedSound = [Sound soundNamed:@"buttonPressed.caf"];
     [levelButton setPressedTarget:self withAction:@selector(pressedLevelButton)];
     [self addChild:levelButton];
     

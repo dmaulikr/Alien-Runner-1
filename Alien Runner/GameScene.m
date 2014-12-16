@@ -11,6 +11,7 @@
 #import "JSTileMap.h"
 #import "Player.h"
 #import "Constants.h"
+#import "SoundManager.h"
 
 @interface GameScene()
 
@@ -27,6 +28,9 @@
 - (id)initWithSize:(CGSize)size {
   
   if (self = [super initWithSize:size]) {
+    // Init audio
+    [[SoundManager sharedManager] prepareToPlayWithSound:@"levelComplete.caf"];
+    
     // Sky blue background
     self.backgroundColor = [SKColor colorWithRed:0.81 green:0.91 blue:0.96 alpha:1.0];
     
@@ -90,10 +94,10 @@
   
   MainMenuScene *mainMenu = [[MainMenuScene alloc] initWithSize:self.size];
   if (completedLevel) {
-    // todo play complete sound
+    [[SoundManager sharedManager] playSound:@"levelComplete.caf"];
     mainMenu.mode = LevelCompleted;
   } else {
-    // todo play failed sound
+    [[SoundManager sharedManager] playSound:@"gameOver.caf"];
     mainMenu.mode = LevelFailed;
   }
   

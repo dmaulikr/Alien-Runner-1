@@ -157,9 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				BE02240C1A4002F000F0A2C1 /* SoundManager */,
+				BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */,
 				BE8CDEEA1A3D632C004BD7FB /* Graphics.atlas */,
 				BE8CDEDF1A3D6153004BD7FB /* Maps */,
-				BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */,
 				BE0224131A400FB500F0A2C1 /* Constants.h */,
 				BE0224141A400FB500F0A2C1 /* Constants.m */,
 				BEAC41401A3D5D55003E8E8C /* AppDelegate.h */,

@@ -23,9 +23,35 @@
     title.fontSize = 40;
     title.position = CGPointMake(size.width * 0.5, size.height - 100);
     [self addChild:title];
+    
+    // Setup layout node
+    SKNode *layoutNode = [SKNode node];
+    [self addChild:layoutNode];
+    
+    SKTexture *buttonDisabledTexture = [SKTexture textureWithImageNamed:@"LevelLocked"];
+    int levelUnlocked = 2;
+    
+    // Add buttons for levels
+    for (int i = 1; i <= 3; i++) {
+      SKTexture *buttonTexture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"Level%d", i]];
+      Button *levelButton = [Button spriteNodeWithTexture:buttonTexture andDisabledTexture:buttonDisabledTexture];
+      levelButton.disabled = (i > levelUnlocked);
+      levelButton.position = CGPointMake((i - 1) * 50, 0);
+      levelButton.name = [NSString stringWithFormat:@"%d",i];
+      levelButton.delegate = self;
+      [layoutNode addChild:levelButton];
+    }
+    
+    CGRect layoutFrame = [layoutNode calculateAccumulatedFrame];
+    layoutNode.position = CGPointMake(self.size.width * 0.5 - (layoutFrame.size.width * 0.5) -layoutFrame.origin.x, self.size.height -170);
+    
   }
   return self;
 }
 
+- (void)buttonPressed:(Button *)button
+{
+  NSLog(@"Pressed button %@", button.name);
+}
 
 @end

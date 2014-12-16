@@ -7,7 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Button.h"
 
-@interface LevelSelectionScene : SKScene
+@interface LevelSelectionScene : SKScene <ButtonDelegate>
 
 @end

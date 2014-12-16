@@ -19,6 +19,8 @@ typedef enum : NSUInteger {
 @property (nonatomic) CGVector velocity;
 @property (nonatomic) CGPoint targetPosition;
 @property (nonatomic) BOOL didJump;
+@property (nonatomic) BOOL moveLeft;
+@property (nonatomic) BOOL moveRight;
 @property (nonatomic) BOOL onGround;
 @property (nonatomic) CGFloat gravityMultiplier;
 @property (nonatomic) PlayerState state;

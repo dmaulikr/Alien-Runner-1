@@ -120,7 +120,16 @@ static const BOOL kShowCollisionRect = NO;
   
   if (self.state != Hurt) {
     // Apply acceleration
-    self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
+    if (self.moveRight) {
+      self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
+    } else if(self.velocity.dx > 0) {
+      self.velocity = CGVectorMake(fmaxf(0, self.velocity.dx - (kAcceleration * 2)), self.velocity.dy);
+    }
+    if (self.moveLeft) {
+      self.velocity = CGVectorMake(fmaxf(-kMaxSpeed, self.velocity.dx - kAcceleration), self.velocity.dy);
+    } else if (self.velocity.dx < 0) {
+      self.velocity = CGVectorMake(fminf(0, self.velocity.dx + (kAcceleration * 2)), self.velocity.dy);
+    }
     
     // Prevent ability to flip gravity when player lands on the ground
     if (self.onGround) {

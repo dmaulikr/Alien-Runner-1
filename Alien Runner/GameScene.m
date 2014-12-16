@@ -10,6 +10,7 @@
 #import "GameScene.h"
 #import "JSTileMap.h"
 #import "Player.h"
+#import "Constants.h"
 
 @interface GameScene()
 
@@ -61,8 +62,25 @@
   return position;
 }
 
-- (void)gameOver
+- (void)gameOver:(BOOL)completedLevel
 {
+  if (completedLevel) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger selectedLevel = [userDefaults integerForKey:kSelectedLevel];
+    NSInteger highestUnlockedLevel = [userDefaults integerForKey:kHighestUnlockedLevel];
+    
+    if (selectedLevel == highestUnlockedLevel && kHighestLevel > highestUnlockedLevel) {
+      highestUnlockedLevel++;
+      [userDefaults setInteger:highestUnlockedLevel forKey:kHighestUnlockedLevel];
+    }
+    
+    if (selectedLevel < highestUnlockedLevel) {
+      selectedLevel++;
+      [userDefaults setInteger:selectedLevel forKey:kSelectedLevel];
+    }
+    
+    [userDefaults synchronize];
+  }
   [self.view presentScene:[[MainMenuScene alloc] initWithSize:self.size]];
 }
 
@@ -78,11 +96,6 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  // Reset - for debugging
-  UITouch *touch = [touches anyObject];
-  if ([touch locationInNode:self].x < 50) {
-    [self gameOver];
-  }
   self.player.didJump = NO;
 }
 
@@ -178,8 +191,9 @@
   // Check if the player has fallen out of the world
   if (self.player.targetPosition.y < -self.player.size.height * 2 || self.player.targetPosition.y > (self.map.mapSize.height * self.map.tileSize.height) + self.player.size.height * 2) {
     // Fallen out of the world
-    [self gameOver];
+    [self gameOver:NO];
   } else {
+    
     if (self.player.state != Hurt) {
       // Collide player with world
       [self collide:self.player withLayer:self.mainLayer resolveWithMove:YES];
@@ -190,8 +204,15 @@
         [self.player kill];
       }
     }
-      // Move player
-      self.player.position = self.player.targetPosition;
+    
+    // Move player
+    self.player.position = self.player.targetPosition;
+    
+    // Check if player has completed the level
+    if (self.player.position.x - self.player.size.width > self.map.mapSize.width * self.map.tileSize.width) {
+      // Reached end of the level
+      [self gameOver:YES];
+    }
   }
   
   // Update position of camera

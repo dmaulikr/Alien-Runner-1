@@ -90,8 +90,10 @@
   
   MainMenuScene *mainMenu = [[MainMenuScene alloc] initWithSize:self.size];
   if (completedLevel) {
+    // todo play complete sound
     mainMenu.mode = LevelCompleted;
   } else {
+    // todo play failed sound
     mainMenu.mode = LevelFailed;
   }
   

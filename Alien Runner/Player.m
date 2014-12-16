@@ -74,14 +74,19 @@ static const BOOL kShowCollisionRect = NO;
     _state = state;
     switch (state) {
       case Running:
+        // todo Play landing sound
+        
+        // todo add running loop sound
         [self runAction:self.runningAnimation withKey:@"Run"];
         break;
         
       case Jumping:
+        // todo add jumping sound
         self.texture = [SKTexture textureWithImageNamed:@"p1_jump"];
         break;
       
       case Hurt:
+        // todo add hurt sound
         self.texture = [SKTexture textureWithImageNamed:@"p1_hurt"];
         break;
         
@@ -127,10 +132,14 @@ static const BOOL kShowCollisionRect = NO;
     if (self.didJump && !self.didJumpPrevious) {
       // Starting a jump
       if (self.onGround) {
+        // TODO add jump sound
+        
         // perform jump
         self.velocity = CGVectorMake(self.velocity.dx, kJumpSpeed * self.gravityMultiplier);
         self.canFlipGravity = YES;
       } else if (self.canFlipGravity) {
+        // TODO add flip gravity sound
+        
         // Flip gravity
         self.gravityMultiplier *= -1;
         self.canFlipGravity = NO;

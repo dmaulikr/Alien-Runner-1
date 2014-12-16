@@ -23,7 +23,7 @@ static const CGFloat kAcceleration = 0.07;
 static const CGFloat kMaxSpeed = 3.5;
 static const CGFloat kJumpSpeed = 5.5;
 static const CGFloat kJumpCutOffSpeed = 2.5;
-static const BOOL kShowCollisionRect = YES;
+static const BOOL kShowCollisionRect = NO;
 
 - (instancetype)init
 {

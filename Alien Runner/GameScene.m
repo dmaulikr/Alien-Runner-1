@@ -14,6 +14,7 @@
 
 @property (nonatomic) JSTileMap *map;
 @property (nonatomic) TMXLayer *mainLayer;
+@property (nonatomic) TMXLayer *obstacleLayer;
 @property (nonatomic) SKNode *camera;
 @property (nonatomic) Player *player;
 @end
@@ -29,6 +30,7 @@
     // Load level
     self.map = [JSTileMap mapNamed:@"Level1.tmx"];
     self.mainLayer = [self.map layerNamed:@"Main"];
+    self.obstacleLayer = [self.map layerNamed:@"Obstacles"];
     [self addChild:self.map];
     
     // Setup camera
@@ -103,7 +105,7 @@
   return CGRectMake(x, y, self.map.tileSize.width, self.map.tileSize.height);
 }
 
-- (void)collide:(Player *)player withLayer:(TMXLayer *)layer
+- (BOOL)collide:(Player *)player withLayer:(TMXLayer *)layer resolveWithMove:(BOOL)movePlayer
 {
   // Create coordinate offsets for tiles to check
   CGPoint coordOffsets[8] = {CGPointMake(0, 1), CGPointMake(0, -1), CGPointMake(1, 0), CGPointMake(-1, 0), CGPointMake(1, -1), CGPointMake(-1, -1), CGPointMake(1, 1), CGPointMake(-1, 1)};
@@ -111,8 +113,12 @@
   // Get tile grid coord for player's position
   CGPoint playerCoord = [layer coordForPoint:player.targetPosition];
   
-  // Assume we're not on the ground
-  self.player.onGround = NO;
+  BOOL collision = NO;
+  
+  if (movePlayer) {
+    // Assume we're not on the ground
+    self.player.onGround = NO;
+  }
   
   for (int i = 0; i < 8; i++) {
     CGRect playerRect = [player collisionRectAtTarget];
@@ -130,30 +136,39 @@
       CGRect intersection = CGRectIntersection(playerRect, [self rectForTileCoord:tileCoord]);
       
       if (!CGRectIsEmpty(intersection)) {
-        // Do we move the player horizontally or vertically?
-        BOOL resolveVertically = offset.x == 0 || (offset.y != 0 && intersection.size.height < intersection.size.width);
+        // We have a collision
+        collision = YES;
         
-        CGPoint positionAdjustment = CGPointZero;
-        
-        // Calculate the distance we need to move the player
-        // Reset the player velocity
-        if (resolveVertically) {
-          positionAdjustment.y = intersection.size.height * offset.y;
-          player.velocity = CGVectorMake(player.velocity.dx, 0);
+        if (movePlayer) {
+          // Do we move the player horizontally or vertically?
+          BOOL resolveVertically = offset.x == 0 || (offset.y != 0 && intersection.size.height < intersection.size.width);
           
-          if (offset.y == player.gravityMultiplier) {
-            // player is touching the ground
-            player.onGround = YES;
+          CGPoint positionAdjustment = CGPointZero;
+          
+          // Calculate the distance we need to move the player
+          // Reset the player velocity
+          if (resolveVertically) {
+            positionAdjustment.y = intersection.size.height * offset.y;
+            player.velocity = CGVectorMake(player.velocity.dx, 0);
+            
+            if (offset.y == player.gravityMultiplier) {
+              // player is touching the ground
+              player.onGround = YES;
+            }
+          } else {
+            positionAdjustment.x = intersection.size.width * -offset.x;
+            player.velocity = CGVectorMake(0, player.velocity.dy);
           }
+          
+          player.targetPosition = CGPointMake(player.targetPosition.x + positionAdjustment.x, player.targetPosition.y + positionAdjustment.y);
         } else {
-          positionAdjustment.x = intersection.size.width * -offset.x;
-          player.velocity = CGVectorMake(0, player.velocity.dy);
+          // We've collided but don't need to move the player
+          return YES;
         }
-        
-        player.targetPosition = CGPointMake(player.targetPosition.x + positionAdjustment.x, player.targetPosition.y + positionAdjustment.y);
       }
     }
   }
+  return collision;
 }
 
 - (void)update:(NSTimeInterval)currentTime
@@ -167,10 +182,16 @@
     [self gameOver];
   } else {
     // Collide player with world
-    [self collide:self.player withLayer:self.mainLayer];
+    [self collide:self.player withLayer:self.mainLayer resolveWithMove:YES];
     
-    // Move player
-    self.player.position = self.player.targetPosition;
+    // Collide with obstacles.
+    BOOL collision = [self collide:self.player withLayer:self.obstacleLayer resolveWithMove:NO];
+    if (collision) {
+      [self gameOver];
+    } else {
+      // Move player
+      self.player.position = self.player.targetPosition;
+    }
   }
   
   // Update position of camera

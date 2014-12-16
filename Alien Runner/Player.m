@@ -17,9 +17,9 @@
 
 @implementation Player
 
-static const CGFloat kGravity = -0.2;
-static const CGFloat kAcceleration = 0.15;
-static const CGFloat kMaxSpeed = 5;
+static const CGFloat kGravity = -0.24;
+static const CGFloat kAcceleration = 0.07;
+static const CGFloat kMaxSpeed = 3.5;
 static const CGFloat kJumpSpeed = 5.5;
 static const CGFloat kJumpCutOffSpeed = 2.5;
 static const BOOL kShowCollisionRect = YES;

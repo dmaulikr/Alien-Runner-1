@@ -11,6 +11,7 @@
 @interface Player()
 
 @property (nonatomic) BOOL didJumpPrevious;
+@property (nonatomic) BOOL canFlipGravity;
 
 @end
 
@@ -27,8 +28,16 @@ static const BOOL kShowCollisionRect = YES;
 {
   self = [super initWithImageNamed:@"p1_walk01"];
   if (self) {
+    
+    // Set gravity to pull down by default
+    self.gravityMultiplier = 1;
   }
   return self;
+}
+
+- (BOOL)gravityFlipped
+{
+  return self.gravityMultiplier == -1;
 }
 
 - (void)update
@@ -46,21 +55,37 @@ static const BOOL kShowCollisionRect = YES;
   }
   
   // Apply gravity
-  self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + kGravity);
+  self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + kGravity * self.gravityMultiplier);
   
   // Apply acceleration
-  //self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
+  self.velocity = CGVectorMake(fminf(kMaxSpeed, self.velocity.dx + kAcceleration), self.velocity.dy);
+  
+  // Prevent ability to flip gravity when player lands on the ground
+  if (self.onGround) {
+    self.canFlipGravity = NO;
+  }
   
   if (self.didJump && !self.didJumpPrevious) {
     // Starting a jump
     if (self.onGround) {
       // perform jump
-      self.velocity = CGVectorMake(self.velocity.dx, kJumpSpeed);
+      self.velocity = CGVectorMake(self.velocity.dx, kJumpSpeed * self.gravityMultiplier);
+      self.canFlipGravity = YES;
+    } else if (self.canFlipGravity) {
+      // Flip gravity
+      self.gravityMultiplier *= -1;
+      self.canFlipGravity = NO;
     }
   } else if (!self.didJump) {
     // Cancel jump
-    if (self.velocity.dy > kJumpCutOffSpeed) {
-      self.velocity = CGVectorMake(self.velocity.dx, kJumpCutOffSpeed);
+    if (self.gravityFlipped) {
+      if (self.velocity.dy > -kJumpCutOffSpeed) {
+        self.velocity = CGVectorMake(self.velocity.dx, -kJumpCutOffSpeed);
+      } else {
+        if (self.velocity.dy > kJumpCutOffSpeed) {
+          self.velocity = CGVectorMake(self.velocity.dx, kJumpCutOffSpeed);
+        }
+      }
     }
   }
   

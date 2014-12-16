@@ -14,8 +14,10 @@
 @property (nonatomic) CGPoint targetPosition;
 @property (nonatomic) BOOL didJump;
 @property (nonatomic) BOOL onGround;
+@property (nonatomic) CGFloat gravityMultiplier;
 
 - (void)update;
 - (CGRect)collisionRectAtTarget;
+- (BOOL)gravityFlipped;
 
 @end

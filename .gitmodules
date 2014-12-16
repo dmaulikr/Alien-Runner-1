@@ -1,0 +1,3 @@
+[submodule "Alien Runner/SoundManager"]
+	path = Alien Runner/SoundManager
+	url = https://github.com/nicklockwood/SoundManager.git

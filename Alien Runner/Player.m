@@ -41,6 +41,9 @@ static const BOOL kShowCollisionRect = YES;
     SKAction *animation = [SKAction animateWithTextures:walkFrames timePerFrame:(1.0/15.0) resize:NO restore:NO];
     self.runningAnimation = [SKAction repeatActionForever:animation];
     
+    // Alien is falling my default
+    self.state = Jumping;
+    
     // Set gravity to pull down by default
     self.gravityMultiplier = 1;
   }

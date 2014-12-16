@@ -99,14 +99,16 @@ static const BOOL kShowCollisionRect = YES;
 
 - (CGRect)collisionRectAtTarget
 {
-  // Calculate smaller rectanlge based on frame
-  CGRect collisionRect = CGRectInset(self.frame, 4, 2);
+  // Calculate smaller rectangle
+  CGRect collisionRect = CGRectMake(self.targetPosition.x - (self.size.width * self.anchorPoint.x) + 4,
+                                    self.targetPosition.y - (self.size.height * self.anchorPoint.y),
+                                    self.size.width - 8, self.size.height - 4);
   
-  // Move rectangle to target position
-  CGPoint movement = CGPointMake(self.targetPosition.x - self.position.x, self.targetPosition.y - self.position.y);
+  if (self.gravityFlipped) {
+    // move rectangle up because the bottom is now at the top
+    collisionRect.origin.y += 4;
+  }
   
-  // having an inset of 2 on the y and -2 offset gives 4 pixel pading on top and 0 on bottom
-  collisionRect = CGRectOffset(collisionRect, movement.x, movement.y - 2);
   return collisionRect;
 }
 

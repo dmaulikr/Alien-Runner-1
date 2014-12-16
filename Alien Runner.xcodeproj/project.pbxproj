@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BE0224081A3FFEA000F0A2C1 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0224071A3FFEA000F0A2C1 /* MainMenuScene.m */; };
+		BE02240B1A4002E900F0A2C1 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE02240A1A4002E900F0A2C1 /* SoundManager.m */; };
+		BE02240F1A40032400F0A2C1 /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = BE02240E1A40032400F0A2C1 /* Button.m */; };
 		BE8CDED61A3D5E58004BD7FB /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */; };
 		BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8CDED51A3D5E58004BD7FB /* LFCGzipUtility.m */; };
 		BE8CDED91A3D5E6D004BD7FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8CDED81A3D5E6D004BD7FB /* libz.dylib */; };
@@ -40,6 +42,10 @@
 /* Begin PBXFileReference section */
 		BE0224061A3FFEA000F0A2C1 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		BE0224071A3FFEA000F0A2C1 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
+		BE0224091A4002E900F0A2C1 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = SoundManager/SoundManager/SoundManager.h; sourceTree = "<group>"; };
+		BE02240A1A4002E900F0A2C1 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundManager.m; path = SoundManager/SoundManager/SoundManager.m; sourceTree = "<group>"; };
+		BE02240D1A40032400F0A2C1 /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		BE02240E1A40032400F0A2C1 /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
 		BE8CDED21A3D5E58004BD7FB /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
 		BE8CDED31A3D5E58004BD7FB /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
 		BE8CDED41A3D5E58004BD7FB /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
@@ -89,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE02240C1A4002F000F0A2C1 /* SoundManager */ = {
+			isa = PBXGroup;
+			children = (
+				BE0224091A4002E900F0A2C1 /* SoundManager.h */,
+				BE02240A1A4002E900F0A2C1 /* SoundManager.m */,
+			);
+			name = SoundManager;
+			sourceTree = "<group>";
+		};
 		BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +148,7 @@
 		BEAC413B1A3D5D55003E8E8C /* Alien Runner */ = {
 			isa = PBXGroup;
 			children = (
+				BE02240C1A4002F000F0A2C1 /* SoundManager */,
 				BE8CDEEA1A3D632C004BD7FB /* Graphics.atlas */,
 				BE8CDEDF1A3D6153004BD7FB /* Maps */,
 				BE8CDEDE1A3D5F47004BD7FB /* JSTileMap */,
@@ -147,6 +163,8 @@
 				BE8CDEEC1A3D6389004BD7FB /* Player.h */,
 				BE8CDEED1A3D6389004BD7FB /* Player.m */,
 				BEAC414B1A3D5D55003E8E8C /* Main.storyboard */,
+				BE02240D1A40032400F0A2C1 /* Button.h */,
+				BE02240E1A40032400F0A2C1 /* Button.m */,
 				BEAC414E1A3D5D55003E8E8C /* Images.xcassets */,
 				BEAC41501A3D5D55003E8E8C /* LaunchScreen.xib */,
 				BEAC413C1A3D5D55003E8E8C /* Supporting Files */,
@@ -292,6 +310,8 @@
 				BEAC41421A3D5D55003E8E8C /* AppDelegate.m in Sources */,
 				BEAC41451A3D5D55003E8E8C /* GameScene.m in Sources */,
 				BE8CDED71A3D5E58004BD7FB /* LFCGzipUtility.m in Sources */,
+				BE02240B1A4002E900F0A2C1 /* SoundManager.m in Sources */,
+				BE02240F1A40032400F0A2C1 /* Button.m in Sources */,
 				BE8CDEEE1A3D6389004BD7FB /* Player.m in Sources */,
 				BEAC413F1A3D5D55003E8E8C /* main.m in Sources */,
 			);

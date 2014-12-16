@@ -41,8 +41,6 @@ static const BOOL kShowCollisionRect = YES;
     SKAction *animation = [SKAction animateWithTextures:walkFrames timePerFrame:(1.0/15.0) resize:NO restore:NO];
     self.runningAnimation = [SKAction repeatActionForever:animation];
     
-    [self runAction:self.runningAnimation];
-    
     // Set gravity to pull down by default
     self.gravityMultiplier = 1;
   }
@@ -59,6 +57,35 @@ static const BOOL kShowCollisionRect = YES;
   _gravityMultiplier = gravityMultiplier;
   // Set the texture orientation to match the pull of gravity (flip the image)
   self.yScale = gravityMultiplier;
+}
+
+- (void)setState:(PlayerState)state
+{
+  // only if it changes
+  if (_state != state) {
+    
+    if (_state == Running) {
+      [self removeActionForKey:@"Run"];
+    }
+    
+    _state = state;
+    switch (state) {
+      case Running:
+        [self runAction:self.runningAnimation withKey:@"Run"];
+        break;
+        
+      case Jumping:
+        self.texture = [SKTexture textureWithImageNamed:@"p1_jump.png"];
+        break;
+      
+      case Hurt:
+        self.texture = [SKTexture textureWithImageNamed:@"p1_hurt.png"];
+        break;
+        
+      default:
+        break;
+    }
+  }
 }
 
 - (void)update
@@ -88,6 +115,9 @@ static const BOOL kShowCollisionRect = YES;
   // Prevent ability to flip gravity when player lands on the ground
   if (self.onGround) {
     self.canFlipGravity = NO;
+    self.state = Running;
+  } else {
+    self.state = Jumping;
   }
   
   if (self.didJump && !self.didJumpPrevious) {

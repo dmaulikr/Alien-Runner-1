@@ -17,6 +17,7 @@
 @property (nonatomic) JSTileMap *map;
 @property (nonatomic) TMXLayer *mainLayer;
 @property (nonatomic) TMXLayer *obstacleLayer;
+@property (nonatomic) TMXLayer *backgroundLayer;
 @property (nonatomic) SKNode *camera;
 @property (nonatomic) Player *player;
 @end
@@ -37,6 +38,7 @@
     self.map = [JSTileMap mapNamed:levelName];
     self.mainLayer = [self.map layerNamed:@"Main"];
     self.obstacleLayer = [self.map layerNamed:@"Obstacles"];
+    self.backgroundLayer = [self.map layerNamed:@"Background"];
     [self addChild:self.map];
     
     // Setup camera
@@ -246,6 +248,9 @@
   
   // Center view on camera's position in the map
   self.map.position = CGPointMake((self.size.width * 0.5) - x, (self.size.height * 0.5) - y);
+  
+  // Parallax scroll the background layer
+  self.backgroundLayer.position = CGPointMake(self.map.position.x * -0.2, self.map.position.y * -0.2);
 }
 
 @end
